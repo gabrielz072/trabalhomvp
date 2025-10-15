@@ -1,4 +1,4 @@
-Nome do projeto: StudioZen
+Nome do projeto: TereVerde Online
 
 Tipo de MVP:
 Produto Mínimo Viável com Foco em Funcionalidade Essencial
