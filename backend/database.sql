@@ -1,0 +1,1 @@
+-- SQLite - Criado automaticamente no server.js
