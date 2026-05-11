@@ -1,0 +1,85 @@
+@baseUrl = http://localhost:3000/api
+
+### Health Check
+GET {{baseUrl}}/health
+
+### Registro de Novo Usuário
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "nome": "João Silva",
+  "email": "joao@example.com",
+  "senha": "senha123",
+  "confirmarSenha": "senha123"
+}
+
+### Registro com Email Duplicado (erro esperado)
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "nome": "Teste Duplicado",
+  "email": "admin@studiuzen.com",
+  "senha": "senha123",
+  "confirmarSenha": "senha123"
+}
+
+### Login Admin
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@studiuzen.com",
+  "senha": "admin123"
+}
+
+### Login Usuário Comum (após criar)
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "joao@example.com",
+  "senha": "senha123"
+}
+
+### Verify Token (usar token obtido do login acima)
+GET {{baseUrl}}/auth/verify
+Authorization: Bearer SEU_TOKEN_AQUI
+
+### Logout
+POST {{baseUrl}}/auth/logout
+Authorization: Bearer SEU_TOKEN_AQUI
+
+### Listar Todos os Usuários (Admin Only)
+GET {{baseUrl}}/admin/users
+Authorization: Bearer SEU_TOKEN_ADMIN_AQUI
+
+### Deletar Usuário (Admin Only)
+DELETE {{baseUrl}}/admin/users/2
+Authorization: Bearer SEU_TOKEN_ADMIN_AQUI
+
+### Atualizar Status do Usuário (Admin Only)
+PATCH {{baseUrl}}/admin/users/2/status
+Authorization: Bearer SEU_TOKEN_ADMIN_AQUI
+Content-Type: application/json
+
+{
+  "ativo": false
+}
+
+### Erro - Login com senha inválida
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@studiuzen.com",
+  "senha": "senhaerrada"
+}
+
+### Erro - Acesso sem token
+GET {{baseUrl}}/admin/users
+
+### Erro - Acesso como usuário comum (não admin)
+GET {{baseUrl}}/admin/users
+Authorization: Bearer SEU_TOKEN_USUARIO_COMUM_AQUI

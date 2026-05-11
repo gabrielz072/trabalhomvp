@@ -60,6 +60,12 @@
     © 2025 Studio Zen. Todos os direitos reservados.
   </footer>
 
+  <script src="../../auth-utils.js"></script>
+  <script>
+    Auth.proteger();
+    const u = Auth.getUsuario();
+    if (u) document.querySelector('.user-menu span').textContent = `Olá, ${u.nome} 🎵`;
+  </script>
   <script src="som.js"></script>
 </body>
 </html>

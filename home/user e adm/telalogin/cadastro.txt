@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro - Studio Zen</title>
+  <link rel="stylesheet" href="login.css" />
+  <link rel="icon" type="image/png" href="../../favicon.png">
+  <style>
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: Arial, sans-serif;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #a68a64;
+      box-shadow: 0 0 5px rgba(166, 138, 100, 0.3);
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .back-link a {
+      color: #a68a64;
+      text-decoration: none;
+      font-size: 0.9em;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    .success-message {
+      color: #4caf50;
+      text-align: center;
+      margin-bottom: 15px;
+      display: none;
+    }
+
+    .error-message {
+      color: #f44336;
+      text-align: center;
+      margin-bottom: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-container">
+    <button class="menu-button">☰</button>
+    <div class="menu-items">
+      <a href="../../home/index.html">🏠 Início</a>
+      <a href="../../ajuda/ajuda.html">❓ Ajuda</a>
+      <a href="../../historia/historia.html">📜 História</a>
+    </div>
+  </div>
+
+  <header>
+    <h1>Cadastro</h1>
+    <p>Crie sua conta no Studio Zen</p>
+  </header>
+
+  <main class="product-preview">
+    <div id="successMessage" class="success-message">Cadastro realizado com sucesso! Redirecionando para login...</div>
+    <div id="errorMessage" class="error-message"></div>
+
+    <form id="registro-form">
+      <div class="form-group">
+        <label for="nome">Nome Completo:</label>
+        <input type="text" id="nome" name="nome" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required minlength="6" />
+        <small style="color: #a3907d;">Mínimo de 6 caracteres</small>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmarSenha">Confirmar Senha:</label>
+        <input type="password" id="confirmarSenha" name="confirmarSenha" required />
+      </div>
+
+      <button type="submit" class="cta-button">✓ Cadastrar</button>
+    </form>
+
+    <div class="back-link">
+      Já possui uma conta? <a href="login.html">Faça login aqui</a>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Studio Zen. Todos os direitos reservados.
+  </footer>
+
+  <script src="cadastro.js"></script>
+</body>
+</html>
