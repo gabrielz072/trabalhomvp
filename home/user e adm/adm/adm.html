@@ -117,6 +117,7 @@
     function fazerLogout() {
       if (confirm("Fazer logout?")) {
         Auth.logout();
+        window.location.href = "../../home/index.html";
       }
     }
   </script>
