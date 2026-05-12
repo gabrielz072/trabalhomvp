@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "buildCommand": "npm install --prefix backend && npm install --prefix api",
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "api/index.js": {
+      "memory": 1024,
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api"
+    }
+  ]
+}

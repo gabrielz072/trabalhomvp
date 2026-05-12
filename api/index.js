@@ -2,16 +2,27 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const authController = require('./controllers/authController');
-const { verificarToken, verificarAdmin } = require('./middleware/auth');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
 
-// Servir arquivos estáticos da pasta frontend
+// Inicializar banco de dados primeiro
+try {
+  require('../backend/config/database');
+} catch (error) {
+  console.error('Erro ao inicializar banco de dados:', error);
+}
+
+// Importar controllers e middleware
+const authController = require('../backend/controllers/authController');
+const { verificarToken, verificarAdmin } = require('../backend/middleware/auth');
+
+// Servir arquivos estáticos da pasta frontend (home/home/)
+app.use(express.static(path.join(__dirname, '../home/home')));
+
+// Servir outros arquivos da pasta home (não-home)
 app.use(express.static(path.join(__dirname, '../home')));
 
 // Rotas de API
@@ -30,9 +41,5 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../home/home/index.html'));
 });
 
-require('./config/database');
-
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
-  console.log(`💾 Banco de dados SQLite: studio_zen.db`);
-});
+// Exportar a aplicação para o Vercel
+module.exports = app;
