@@ -36,8 +36,7 @@ document.getElementById('form-assinatura').addEventListener('submit', async func
       return;
     }
 
-    alert('Registro realizado com sucesso! Redirecionando para Sons.');
-    window.location.href = '../user e adm/sons-login/som.html';
+    alert('Cadastro realizado com sucesso! Agora você pode ir para a página de login e entrar com seus dados.');
   } catch (error) {
     alert('Erro de conexão. Verifique se o servidor está rodando.');
   }
