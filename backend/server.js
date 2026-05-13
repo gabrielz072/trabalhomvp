@@ -11,7 +11,10 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Servir arquivos estáticos da pasta frontend
+// Servir arquivos estáticos da pasta frontend (prioridade: home/home/)
+app.use(express.static(path.join(__dirname, '../home/home')));
+
+// Servir outros arquivos da pasta home
 app.use(express.static(path.join(__dirname, '../home')));
 
 // Rotas de API
