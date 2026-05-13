@@ -9,6 +9,6 @@
     "install-deps": "npm install --prefix backend && npm install --prefix api"
   },
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   }
 }
