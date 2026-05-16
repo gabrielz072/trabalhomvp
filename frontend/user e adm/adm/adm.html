@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administrador - Circuito Terê Verde</title>
+  <link rel="stylesheet" href="adm.css" />
+  <link rel="icon" type="image/png" href="../../favicon.png">
+  <style>
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+    th { background-color: #f5f5f5; }
+    .btn { padding: 5px 10px; margin: 5px; border: none; border-radius: 3px; cursor: pointer; }
+    .btn-delete { background-color: #f44336; color: white; }
+    .btn-delete:hover { background-color: #da190b; }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <h2>Circuito Terê Verde</h2>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="mostrarUsuarios()">👥 Clientes</a></li>
+        <li><a href="Relatorios/relatorios.html">📊 Relatórios</a></li>
+        <li><a href="#" onclick="fazerLogout()">🚪 Sair</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="main-content">
+    <header class="admin-header">
+      <div class="admin-user" id="adminUser">
+        <span>Admin</span>
+      </div>
+    </header>
+
+    <section class="dashboard">
+      <h1 id="titulo">Bem-vindo</h1>
+      
+      <div id="usuariosDiv" style="display:none;">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Nome</th><th>Email</th><th>Tipo</th><th>Ação</th></tr>
+          </thead>
+          <tbody id="usuariosTabela">
+            <tr><td colspan="5" style="text-align:center;">Carregando...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="../../auth-utils.js"></script>
+  <script>
+    Auth.proteger(true);
+
+    const usuario = Auth.getUsuario();
+    if (usuario) {
+      document.querySelector('#adminUser span').textContent = usuario.nome;
+    }
+
+    async function mostrarUsuarios() {
+      document.getElementById('usuariosDiv').style.display = 'block';
+      document.getElementById('titulo').textContent = 'Usuários';
+
+      try {
+        const res = await fetch("http://localhost:3000/api/auth/usuarios", {
+          headers: { "Authorization": `Bearer ${Auth.getToken()}` }
+        });
+        const data = await res.json();
+
+        const tbody = document.getElementById('usuariosTabela');
+        tbody.innerHTML = '';
+
+        if (data.usuarios?.length) {
+          data.usuarios.forEach(u => {
+            tbody.innerHTML += `
+              <tr>
+                <td>${u.id}</td>
+                <td>${u.nome}</td>
+                <td>${u.email}</td>
+                <td>${u.tipo_usuario}</td>
+                <td><button class="btn btn-delete" onclick="deletarUsuario(${u.id})">Deletar</button></td>
+              </tr>
+            `;
+          });
+        } else {
+          tbody.innerHTML = '<tr><td colspan="5">Nenhum usuário</td></tr>';
+        }
+      } catch (error) {
+        alert("Erro ao carregar usuários");
+      }
+    }
+
+    async function deletarUsuario(id) {
+      if (confirm("Deletar este usuário?")) {
+        try {
+          const res = await fetch(`http://localhost:3000/api/auth/usuarios/${id}`, {
+            method: "DELETE",
+            headers: { "Authorization": `Bearer ${Auth.getToken()}` }
+          });
+          const data = await res.json();
+          
+          if (data.mensagem) {
+            alert("Usuário deletado");
+            mostrarUsuarios();
+          } else {
+            alert(data.erro);
+          }
+        } catch (error) {
+          alert("Erro ao deletar");
+        }
+      }
+    }
+
+    function fazerLogout() {
+      if (confirm("Fazer logout?")) {
+        Auth.logout();
+        window.location.href = "../../home/index.html";
+      }
+    }
+  </script>
+
+</body>
+</html>

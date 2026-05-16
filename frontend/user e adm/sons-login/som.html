@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sons - Circuito Terê Verde</title>
+  <link rel="stylesheet" href="som.css" />
+  <link rel="icon" type="image/png" href="../favicon.png">
+</head>
+<body>
+
+  <!-- Menu lateral -->
+  <aside class="sidebar">
+  <h2>Terê Verde Online</h2>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="../sons-login/som.html">🎵 Sons</a></li>
+      <li><a href="../poesias-login/poesias.html" class="active">🌿 Trilhas</a></li>
+      <li><a href="../Leitura/index.html">📖 Leitura</a></li>
+    </ul>
+
+    <ul class="bottom-link">
+      <li><a href="../../ajuda/ajuda.html">❓ Ajuda</a></li>
+    </ul>
+  </nav>
+</aside>
+
+  <main class="content">
+    <header class="user-header">
+      <div class="user-menu" id="userMenu">
+        <span>Olá, Camila 🌿</span>
+        <div class="dropdown" id="dropdownMenu">
+          <a href="#">Configurações</a>
+          <a href="#">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="page-title">
+      <h1>Respire com tranquilidade</h1>
+      <p>Escolha um som abaixo e acompanhe o ritmo da respiração guiada.</p>
+    </section>
+
+    <section class="sound-gallery">
+      <img class="sound-icon" src="img/chuva.png" data-som="sons/chuva.mp3" alt="Chuva" />
+      <img class="sound-icon" src="img/passaros.png" data-som="sons/passaros.mp3" alt="Pássaros" />
+      <img class="sound-icon" src="img/mar.png" data-som="sons/mar.mp3" alt="Mar" />
+      <img class="sound-icon" src="img/fogueira.png" data-som="sons/fogueira.mp3" alt="Fogueira" />
+      <img class="sound-icon" src="img/rio.png" data-som="sons/rio.mp3" alt="Rio" />
+      <img class="sound-icon" src="img/musica.png" data-som="sons/musica.mp3" alt="Música relaxante" />
+    </section>
+    <section class="breathing-section">
+      <div id="breathingCircle">1</div>
+      <br>
+      <div id="breathingText">Inspire...</div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Circuito Terê Verde. Todos os direitos reservados.
+  </footer>
+
+  <script src="../../auth-utils.js"></script>
+  <script>
+    Auth.proteger();
+    const u = Auth.getUsuario();
+    if (u) document.querySelector('.user-menu span').textContent = `Olá, ${u.nome} 🎵`;
+  </script>
+  <script src="som.js"></script>
+</body>
+</html>

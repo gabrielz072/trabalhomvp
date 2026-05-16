@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,900');
+
+@font-face {
+  font-family: 'Morally Serif';
+  src: url('Morally Serif.otf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Botões de filtro de relatórios */
+.report-filters {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+}
+
+/* Estilo dos botões de filtro */
+.report-btn {
+  background-color: #a68a64;
+  border: none;
+  padding: 10px 16px;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.report-btn:hover {
+  background-color: #6b4f3b;
+}
+
+/* Layout dos gráficos (lado a lado ou empilhados) */
+.charts-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* Caixa individual de gráfico */
+.chart-box {
+  flex: 1;
+  min-width: 280px;
+  background-color: #fffaf6;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Gráfico de barras (simulado com divs verticais) */
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 200px;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.bar-chart div {
+  flex: 1;
+  background-color: #a68a64;
+  text-align: center;
+  color: #fff;
+  font-size: 0.8em;
+  border-radius: 4px 4px 0 0;
+  transition: 0.3s;
+}
+
+.bar-chart div:hover {
+  background-color: #6b4f3b;
+}
+
+/* Gráfico de pizza com legenda */
+.pie-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Pizza simulada com conic-gradient */
+.pie {
+  width: 140px;
+  height: 140px;
+  background: conic-gradient(
+    #a68a64 0% 40%,
+    #6b4f3b 40% 70%,
+    #d6c1b0 70% 100%
+  );
+  border-radius: 50%;
+}
+
+/* Legenda do gráfico de pizza */
+.legend {
+  list-style: none;
+  margin-top: 15px;
+  padding: 0;
+  font-size: 0.9em;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.legend span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  font-family: 'Georgia', serif;
+  background-color: #f8f4f0;
+  color: #3d2e26;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* MENU LATERAL */
+.sidebar {
+  width: 240px;
+  background-color: #fffaf6;
+  padding: 30px 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.sidebar h2 {
+  font-family: 'Morally Serif', serif;
+  font-size: 1.8em;
+  color: #3E2C23;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: normal;
+}
+
+.sidebar nav ul {
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 20px;
+}
+
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: #3d2e26;
+  font-size: 1.1em;
+  padding: 10px 16px;
+  display: block;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover {
+  background-color: #f0e8df;
+}
+
+/* ÁREA PRINCIPAL */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* TOPO DIREITO */
+.admin-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.admin-user {
+  position: relative;
+  cursor: pointer;
+  background-color: #a68a64;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+.admin-user:hover {
+  background-color: #6b4f3b;
+}
+
+.dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #fffaf6;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.dropdown.show {
+  display: flex;
+}
+
+.dropdown a {
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #3d2e26;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown a:hover {
+  background-color: #f0e8df;
+}
+
+/* CONTEÚDO DO DASHBOARD */
+.dashboard {
+  padding: 20px;
+  background-color: #ffffffea;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard h1 {
+  font-family: 'Morally Serif', serif;
+  font-size: 2.4em;
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+.dashboard p {
+  font-size: 1.1em;
+  color: #5c4a3b;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .admin-header {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Circuito Terê Verde</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="../user e adm/favicon.png">
+</head>
+<body>
+
+  <!-- MENU INTERATIVO -->
+  <div class="menu-container">
+    <button class="menu-button">☰</button>
+    <div class="menu-items">
+      <a href="../home/index.html">🏠 Início</a>
+      <a href="../ajuda/ajuda.html">❓ Ajuda</a>
+      <a href="../historia/historia.html">📜 História</a>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <header>
+    <h1>Assine o Circuito Terê Verde/h1>
+    <p>Seu refúgio diário de tranquilidade começa agora.</p>
+  </header>
+
+  <main class="subscription-section">
+    <section class="product-info">
+      <h2>O que você recebe com sua assinatura</h2>
+      <ul>
+        <li>✔ Sessões de respiração guiada</li><br>
+        <li>✔ Trilhas sonoras relaxantes</li><br>
+        <li>✔ Práticas para ansiedade, estresse e foco</li><br>
+        <li>✔ Acesso ilimitado 24/7</li><br>
+      </ul>
+    </section>
+
+    <section class="refund-info">
+      <h3>Política de Reembolso</h3>
+      <p>Você pode solicitar reembolso total em até 7 dias após a compra, sem complicações. Sua satisfação é nossa prioridade.</p>
+    </section><br>
+
+    <section class="form-section">
+      <h3>Complete para Assinar</h3>
+      <p>OBS: após clicar em "confirmar assinatura", você receberá um link via e-mail para a finalização do pagamento.</p>
+      <p>Acesso é imediato com pagamentos via cartão de crédito/débito. Para boleto, somente após confirmação.</p>
+
+      <form id="form-assinatura">
+        <label for="nome">Nome completo:</label>
+        <input type="text" id="nome" name="nome" required pattern="^\s*\S+\s+\S+.*$" title="Insira nome e sobrenome." />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required minlength="6" placeholder="Mínimo 6 caracteres" />
+
+        <label for="pagamento">Forma de pagamento:</label>
+        <select id="pagamento" name="pagamento" required>
+          <option value="">Selecione</option>
+          <option value="cartao">Cartão de Crédito/Débito</option>
+          <option value="pix">PIX</option>
+        </select><br><br>
+
+        <label for="plano">Tempo de acesso:</label>
+        <select id="plano" name="plano" required>
+          <option value="">Selecione</option>
+          <option value="semana">1 Semana - R$ 5,00</option>
+          <option value="mes">1 Mês - R$ 15,00</option>
+          <option value="tres-meses">3 Meses - R$ 30,00</option>
+        </select><br><br>
+      <button type="submit" class="cta-button">💳 Confirmar Assinatura</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Circuito Terê Verde. Todos os direitos reservados.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

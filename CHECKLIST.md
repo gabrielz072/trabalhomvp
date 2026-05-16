@@ -24,7 +24,7 @@
 
 - [ ] Abrir MySQL Workbench ou Command Line
 - [ ] Conectar como `root`
-- [ ] Verificar: `USE studio_zen;`
+- [ ] Verificar: `USE circuito_verde;`
 - [ ] Verificar: `SHOW TABLES;`
 - [ ] Verificar: `SELECT * FROM usuarios;` (deve ter admin)
 

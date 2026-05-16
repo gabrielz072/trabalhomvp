@@ -1,0 +1,255 @@
+@font-face {
+  font-family: 'Morally Serif';
+  src: url('Morally Serif.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background-color: #f8f4f0;
+  color: #3d2e26;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main.content {
+  margin-left: 230px;
+  padding: 40px;
+  flex: 1; /* ocupa o restante do espaço vertical */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+.bottom-link {
+  list-style: none;
+  padding: 0;
+  margin-top: auto;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  height: 89%;
+}
+
+.sidebar nav ul li a {
+  display: block;
+  padding: 10px;
+  color: #3d2e26;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  transition: background-color 0.3s;
+}
+
+.sidebar nav ul li a:hover {
+  background-color: #eee3d6;
+}
+
+
+.sidebar {
+  width: 230px;
+  background-color: #fffaf3;
+  padding: 20px;
+  height: 100vh;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+
+.sidebar h2 {
+  font-family: 'Morally Serif', serif;
+  font-size: 1.8em;
+   color: #21661e;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: normal;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 10px;
+  color: #3d2e26;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background-color: #eee3d6;
+}
+
+.content {
+  margin-left: 230px;
+  padding: 40px;
+  flex-grow: 1;
+}
+
+.user-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.user-menu {
+  position: relative;
+  cursor: pointer;
+  background-color: #A68A64;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.user-menu .dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 160px;
+  z-index: 10;
+}
+
+.user-menu .dropdown a {
+  display: block;
+  padding: 10px 20px;
+  color: #3d2e26;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.user-menu .dropdown a:hover {
+  background-color: #f0e8df;
+}
+
+.user-menu .dropdown.show {
+  display: block;
+}
+
+.page-title h1 {
+  font-family: 'Morally Serif', serif;
+  font-size: 2.4em;
+  margin-bottom: 10px;
+  margin-top: -50px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.page-title p {
+  font-family: 'Georgia', serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.sound-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin: 40px auto;
+  max-width: 100%;
+  padding: 10px 0;
+}
+
+.sound-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sound-icon:hover {
+  transform: scale(1.07);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.breathing-section {
+  text-align: center;
+  margin-top: 40px;
+  font-family: 'Morally Serif', serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+#breathingCircle {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #b6a57d, #9b8c68);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+  font-weight: normal;
+  box-shadow: 0 12px 30px rgba(166,138,100,0.7);
+  transition: transform 1s ease;
+}
+
+#breathingText {
+  font-size: 80px;
+  color: #6b4f3be7;
+  font-weight: normal;
+  transition: opacity 0.4s ease;
+  user-select: none;
+  letter-spacing: 1.2px;
+  margin-top: 10px;
+}
+
+.sound-icon {
+  opacity: 0.6;
+  transition: filter 0.3s, opacity 0.3s, transform 0.3s;
+  filter: none;
+}
+
+.sound-icon.active {
+  opacity: 1;
+  filter: brightness(1) contrast(1.5);
+}
+
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #a3907d;
+  font-size: 0.9em;
+  background-color: transparent;
+  margin-left: 230px;
+}

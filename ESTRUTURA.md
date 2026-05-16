@@ -180,7 +180,7 @@ AUTENTICADO
 
 ---
 
-## 🎓 PROJETO ACADÊMICO - Studio Zen
+## 🎓 PROJETO ACADÊMICO - Circuito Verde
 
 Desenvolvido com:
 - **Backend:** Node.js + Express

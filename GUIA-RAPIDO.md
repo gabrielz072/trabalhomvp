@@ -10,7 +10,7 @@
 mysql -u root -p
 
 # No prompt MySQL:
-mysql> CREATE DATABASE studio_zen;
+mysql> CREATE DATABASE circuito_verde;
 mysql> exit
 ```
 
@@ -46,13 +46,13 @@ npm start
 # Você verá:
 # 🚀 Servidor rodando em http://localhost:3000
 # 📊 Ambiente: development
-# 💾 Banco de dados: studio_zen
+# 💾 Banco de dados: circuito_verde
 ```
 
 ## 5️⃣ Testar Login
 
 **Credenciais Admin Padrão:**
-- Email: `admin@studiuzen.com`
+- Email: `admin@circuitoverde.com`
 - Senha: `admin123`
 
 Abra em seu navegador:

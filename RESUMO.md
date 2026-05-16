@@ -245,5 +245,5 @@ Bom projeto! 🎊
 
 ---
 
-**Desenvolvido para Studio Zen - Projeto Acadêmico**
+**Desenvolvido para Circuito Terê Verde - Projeto Acadêmico**
 **Maio de 2026**

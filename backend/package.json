@@ -1,7 +1,7 @@
 {
-  "name": "studio-zen-backend",
+  "name": "circuito-verde-backend",
   "version": "1.0.0",
-  "description": "Backend Studio Zen - SQLite",
+  "description": "Backend Circuito Verde - SQLite",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

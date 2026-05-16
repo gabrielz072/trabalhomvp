@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,900');
+
+@font-face {
+  font-family: 'Morally Serif';
+  src: url('Morally Serif.otf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background-color: #f8f4f0;
+  color: #1A481F;
+  padding: 40px 20px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* BOTÃO ASSINE FIXO */
+
+.subscribe-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #1a481fd5;
+  color: #ffffff;
+  padding: 18px 28px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1001;
+}
+
+.subscribe-button:hover {
+  background-color: #2F8F3A;
+  transform: scale(1.05);
+}
+
+/* MENU */
+
+.menu-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.menu-button {
+  font-size: 1.8em;
+  background: none;
+  color: #1A481F;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-items {
+  display: none;
+  flex-direction: column;
+  background-color: #fffaf3;
+  padding: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: absolute;
+  top: 40px;
+  left: 0;
+  min-width: 160px;
+}
+
+.menu-container:hover .menu-items {
+  display: flex;
+}
+
+.menu-items a {
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #1A481F;
+  transition: background-color 0.3s ease;
+  font-size: 1em;
+}
+
+.menu-items a:hover {
+  background-color: #f0e8df;
+}
+
+/* HEADER */
+
+header {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+header h1 {
+  font-family:'Morally Serif', serif;
+  font-size: 4em;
+  font-weight: normal;
+  color: #246D2C;
+}
+
+/* CONTEÚDO */
+
+main {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fffaf6;
+  padding: 45px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+main p {
+  font-size: 1.08em;
+  line-height: 2;
+  color: #1A481F;
+  text-align: justify;
+}
+
+/* FOOTER */
+
+footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #045e0fc4;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+
+  header h1 {
+    font-size: 2.5em;
+  }
+
+  main {
+    padding: 30px 20px;
+  }
+
+  main p {
+    font-size: 1em;
+    line-height: 1.8;
+  }
+
+  .subscribe-button {
+    padding: 14px 20px;
+    font-size: 1em;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .menu-items {
+    min-width: 140px;
+  }
+
+  header {
+    margin-top: 70px;
+  }
+
+}

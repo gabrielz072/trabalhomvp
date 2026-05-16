@@ -1,6 +1,6 @@
-# Studio Zen - Backend & Autenticação
+# Circuito Verde - Backend & Autenticação
 
-Sistema completo de autenticação e gerenciamento de usuários para o Studio Zen, desenvolvido com Node.js, Express e MySQL.
+Sistema completo de autenticação e gerenciamento de usuários para o Circuito Terê Verde, desenvolvido com Node.js, Express e MySQL.
 
 ## 🚀 Features
 
@@ -41,8 +41,8 @@ trabalhomvp/
 
 ```sql
 -- Arquivo: backend/database.sql
-CREATE DATABASE IF NOT EXISTS studio_zen;
-USE studio_zen;
+CREATE DATABASE IF NOT EXISTS circuito_verde;
+USE circuito_verde;
 
 -- Copie e execute todo o conteúdo do arquivo database.sql
 ```
@@ -73,7 +73,7 @@ Edite o arquivo `.env` na pasta `backend/`:
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=           # Deixe em branco se não configurou senha, ou coloque a senha
-DB_NAME=studio_zen
+DB_NAME=circuito_verde
 DB_PORT=3306
 
 # Configurações do Servidor
@@ -99,14 +99,14 @@ Você verá:
 ```
 🚀 Servidor rodando em http://localhost:3000
 📊 Ambiente: development
-💾 Banco de dados: studio_zen
+💾 Banco de dados: circuito_verde
 ```
 
 ## 👤 Usuário Padrão
 
 Após executar o script SQL, um usuário admin padrão é criado:
 
-- **Email**: `admin@studiuzen.com`
+- **Email**: `admin@circuitoverde.com`
 - **Senha**: `admin123`
 
 ## 🌐 Endpoints da API
@@ -294,7 +294,7 @@ npm install
 
 ### Erro: "Database does not exist"
 - Executar o script database.sql
-- Ou criar manualmente: `CREATE DATABASE studio_zen;`
+- Ou criar manualmente: `CREATE DATABASE circuito_verde;`
 
 ### Login diz "Token inválido"
 - Verificar se a chave JWT_SECRET no .env é a mesma
@@ -349,4 +349,4 @@ Para dúvidas sobre a integração, verifique:
 
 ---
 
-**Desenvolvido para Studio Zen - Projeto de Faculdade** 🧘‍♀️
+**Desenvolvido para Circuito Terê Verde - Projeto de Faculdade** 🧘‍♀️

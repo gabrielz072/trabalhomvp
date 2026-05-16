@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biodiversidade - Circuito Terê Verde</title>
+  <link rel="stylesheet" href="css.css" />
+  <link rel="icon" type="image/png" href="../favicon.png">
+</head>
+<body>
+
+  <!-- Menu lateral -->
+  <aside class="sidebar">
+  <h2>Terê Verde Online</h2>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="../sons-login/som.html">🎵 Sons</a></li>
+      <li><a href="../poesias-login/poesias.html" class="active">🌿 Trilhas</a></li>
+      <li><a href="../Leitura/index.html">📖 Leitura</a></li>
+    </ul>
+
+    <ul class="bottom-link">
+      <li><a href="../../ajuda/ajuda.html">❓ Ajuda</a></li>
+    </ul>
+  </nav>
+</aside>
+
+
+  <!-- Cabeçalho com botão de usuário -->
+  <header class="user-header">
+      <div class="user-menu" id="userMenu">
+        <span>Olá, Camila 🌿</span>
+        <div class="dropdown" id="dropdownMenu">
+          <a href="#">Configurações</a>
+          <a href="#">Sair</a>
+        </div>
+      </div>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main class="main1">
+    <h1 class="h11">
+      🌱 A Importância da Biodiversidade
+    </h1>
+
+    <p class="p1">
+      A biodiversidade é a variedade de formas de vida existentes na Terra, englobando desde os microrganismos até as maiores espécies animais e vegetais. Ela garante o equilíbrio dos ecossistemas e a manutenção dos processos naturais que sustentam a vida humana.
+      <br><br>
+      Florestas, oceanos, rios e até pequenos fragmentos de mata abrigam milhões de espécies que interagem entre si, formando uma rede essencial para a produção de alimentos, o fornecimento de água, a regulação do clima e a purificação do ar.
+      <br><br>
+      A perda de biodiversidade, causada principalmente pelo desmatamento, poluição e mudanças climáticas, compromete esses serviços ambientais e coloca em risco a sobrevivência de inúmeras espécies, incluindo a nossa.
+      <br><br>
+      A proteção da biodiversidade é também uma questão cultural e espiritual. Povos indígenas e comunidades tradicionais vivem em estreita relação com a natureza, desenvolvendo conhecimentos milenares sobre plantas, animais e ciclos naturais.
+      <br><br>
+      Segundo cientistas, preservar a biodiversidade é fundamental para reduzir impactos ambientais e garantir qualidade de vida para as próximas gerações. O planeta depende da riqueza de espécies para manter seu equilíbrio.
+      <br><br>
+      Cada espécie tem seu papel: abelhas polinizam flores e garantem colheitas, árvores produzem oxigênio e regulam o clima, solos férteis sustentam a agricultura e oceanos equilibrados absorvem parte do carbono emitido pelas atividades humanas.
+      <br><br>
+      Conservar a biodiversidade significa conservar a vida em todas as suas formas e interações. Pequenas atitudes no dia a dia — como consumir de forma consciente, evitar desperdícios e apoiar práticas sustentáveis — fazem parte dessa mudança.
+      <br><br>
+      <strong>Valorizar e proteger a biodiversidade é cuidar da nossa própria existência e do futuro do planeta.</strong>
+    </p>
+
+    <ul class="ul1">
+      <li>Plantar árvores nativas e preservar áreas verdes urbanas;</li>
+      <li>Reduzir o uso de plásticos descartáveis que afetam a fauna marinha;</li>
+      <li>Apoiar iniciativas de conservação em parques e reservas naturais;</li>
+      <li>Consumir alimentos de origem sustentável, valorizando pequenos produtores;</li>
+      <li>Proteger espécies polinizadoras, como abelhas e borboletas;</li>
+      <li>Evitar o desperdício de água e energia para reduzir impactos ambientais;</li>
+      <li>Participar de projetos de educação ambiental na comunidade;</li>
+      <li>Respeitar e aprender com os conhecimentos tradicionais sobre a natureza.</li>
+    </ul>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer1">
+    © 2026 Circuito Terê Verde. Todos os direitos reservados.
+  </footer>
+
+  <script src="../../auth-utils.js"></script>
+  <script>
+    Auth.proteger();
+    const u = Auth.getUsuario();
+    if (u) document.querySelector('.user-menu span').textContent = `Olá, ${u.nome} 🌿`;
+  </script>
+</body>
+</html>

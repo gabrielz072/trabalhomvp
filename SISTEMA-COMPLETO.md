@@ -64,8 +64,8 @@ mysql -u root -p
 # Digite sua senha (deixe em branco se não configurou)
 
 # No prompt MySQL:
-mysql> CREATE DATABASE studio_zen;
-mysql> USE studio_zen;
+mysql> CREATE DATABASE circuito_verde;
+mysql> USE circuito_verde;
 mysql> [Copie e cole o conteúdo do database.sql]
 mysql> exit
 ```
@@ -76,7 +76,7 @@ Edite `backend/.env`:
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=           # Sua senha MySQL (se tiver)
-DB_NAME=studio_zen
+DB_NAME=circuito_verde
 DB_PORT=3306
 PORT=3000
 JWT_SECRET=sua_chave_secreta_muito_segura_aqui_2024
@@ -92,14 +92,14 @@ Você deve ver:
 ```
 🚀 Servidor rodando em http://localhost:3000
 📊 Ambiente: development
-💾 Banco de dados: studio_zen
+💾 Banco de dados: circuito_verde
 ```
 
 ### Step 5: Testar Login (5 min)
 
 1. Abra: `home/user e adm/telalogin/login.html`
 2. Use credenciais padrão:
-   - Email: `admin@studiuzen.com`
+   - Email: `admin@circuitoverde.com`
    - Senha: `admin123`
 3. Você deve ser redirecionado para o painel admin
 
@@ -312,6 +312,6 @@ Se tiver problemas:
 
 ## 📄 LICENÇA
 
-Desenvolvido para projeto acadêmico - Studio Zen 🧘‍♀️
+Desenvolvido para projeto acadêmico - Circuito Terê Verde 🧘‍♀️
 
 **Última atualização:** Maio 2026

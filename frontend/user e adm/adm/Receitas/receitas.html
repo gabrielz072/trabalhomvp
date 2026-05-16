@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receita - Circuito Terê Verde</title>
+  <link rel="stylesheet" href="receitas.css" />
+  <link rel="icon" type="image/png" href="../../favicon.png">
+</head>
+<body>
+
+  <!-- Menu lateral -->
+  <aside class="sidebar">
+    <h2>Circuito Terê Verde</h2>
+    <nav>
+      <ul>
+        <li><a href="#">📊 Receita</a></li>
+        <li><a href="../adm.html">👥 Clientes</a></li>
+        <li><a href="../Relatorios/relatorios.html">📈 Relatórios</a></li>
+        <li><a href="../Conteúdos/conteudos.html">📜 Conteúdos</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Conteúdo principal -->
+  <div class="main-content">
+
+    <!-- Cabeçalho com usuário -->
+    <header class="admin-header">
+      <div class="admin-user" id="adminUser">
+        <span>Administrador</span>
+        <div class="dropdown" id="dropdownMenu">
+          <a href="#">Configurações</a>
+          <a href="#">Sair</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteúdo da página Receita -->
+    <section class="dashboard">
+      <h1>Receita de Assinaturas</h1>
+
+      <!-- Botões para filtrar período -->
+      <div class="report-filters">
+        <button class="report-btn">Semana</button>
+        <button class="report-btn">Mês</button>
+        <button class="report-btn">Ano</button>
+      </div>
+
+      <!-- Resumo dos valores totais -->
+      <div class="summary-cards">
+        <div class="card">
+          <h3>Total Semanal</h3>
+          <p>R$ 1.250,00</p>
+        </div>
+        <div class="card">
+          <h3>Total Mensal</h3>
+          <p>R$ 4.980,00</p>
+        </div>
+      </div>
+
+      <!-- Gráfico de barras simulando receita por semana -->
+      <div class="chart-box">
+        <h3>Receita por Semana</h3>
+        <div class="bar-chart">
+          <div style="height: 60%" title="R$300">Sem 1</div>
+          <div style="height: 75%" title="R$375">Sem 2</div>
+          <div style="height: 90%" title="R$450">Sem 3</div>
+          <div style="height: 100%" title="R$500">Sem 4</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Dropdown Script -->
+  <script>
+    document.getElementById('adminUser').addEventListener('click', () => {
+      document.getElementById('dropdownMenu').classList.toggle('show');
+    });
+
+    document.addEventListener('click', function (e) {
+      const dropdown = document.getElementById('dropdownMenu');
+      const adminUser = document.getElementById('adminUser');
+      if (!adminUser.contains(e.target)) {
+        dropdown.classList.remove('show');
+      }
+    });
+  </script>
+
+</body>
+</html>

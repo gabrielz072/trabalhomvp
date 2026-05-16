@@ -2,7 +2,7 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const bcrypt = require('bcryptjs');
 
-const db = new sqlite3.Database(path.join(__dirname, '../studio_zen.db'));
+const db = new sqlite3.Database(path.join(__dirname, '../circuito_verde.db'));
 
 const adminHash = bcrypt.hashSync('admin123', 10);
 

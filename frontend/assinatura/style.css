@@ -1,0 +1,231 @@
+/* Define uma fonte personalizada chamada 'Morally Serif' a partir de um arquivo .otf */
+@font-face {
+  font-family: 'Morally Serif';
+  src: url('Morally Serif.otf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Remove margens e preenchimentos padrão e define box-sizing como border-box para todos os elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estiliza o corpo da página com cor de fundo clara, texto escuro e centralização de conteúdo */
+body {
+  font-family: 'Georgia', serif;
+  background-color: #f5f1ec;
+  color: #3d2e26;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* ========== MENU LATERAL ESQUERDO ========== */
+
+/* Container do botão do menu (posição fixa no canto superior esquerdo) */
+.menu-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+/* Estilo do botão do menu (ícone ☰) */
+.menu-button {
+  font-size: 1.8em;
+  background: none;
+  color: #3d2e26;
+  border: none;
+  cursor: pointer;
+}
+
+/* Lista de itens do menu (inicialmente escondida) */
+.menu-items {
+  display: none;
+  flex-direction: column;
+  background-color: #fffaf3;
+  padding: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: absolute;
+  top: 40px;
+  left: 0;
+  min-width: 160px;
+}
+
+/* Exibe os itens do menu ao passar o mouse sobre o container */
+.menu-container:hover .menu-items {
+  display: flex;
+}
+
+/* Estilização dos links dentro do menu */
+.menu-items a {
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #3d2e26;
+  transition: background-color 0.3s ease;
+  font-size: 1em;
+}
+
+/* Mudança de fundo ao passar o mouse sobre os links */
+.menu-items a:hover {
+  background-color: #f0e8df;
+}
+
+/* ========== CABEÇALHO ========== */
+
+/* Alinha o cabeçalho ao centro com espaçamento inferior */
+header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* Título principal estilizado com a fonte personalizada */
+header h1 {
+  font-family:'Morally Serif', serif;
+  font-size: 4em;
+  font-weight: normal;
+  color: #3d2e26;
+}
+
+/* Subtítulo abaixo do título principal */
+header p {
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: #6a5546;
+}
+
+/* ========== ÁREA DO FORMULÁRIO ========== */
+
+/* Define largura máxima da seção de inscrição */
+.subscription-section {
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Estilo para caixas de conteúdo (informações e formulário) */
+.product-info, .refund-info, .form-section {
+  background-color: #fffaf6;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+/* Estilo para títulos nas seções de inscrição */
+.subscription-section h2, h3 {
+  color: #4e3b2c;
+}
+
+/* Cor de textos, parágrafos, listas e labels */
+.subscription-section p, ul, label {
+  color: #5c4c3d;
+}
+
+/* ========== FORMULÁRIO ========== */
+
+/* Label com texto em negrito e espaçamento inferior */
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #4e3b2c;
+}
+
+/* Campos de texto e seleção com preenchimento, borda arredondada e cor suave */
+form input,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fffaf3;
+  font-size: 1em;
+  color: #3d2e26;
+}
+
+/* Destaque dos campos quando estão em foco */
+form input:focus,
+form select:focus {
+  border-color: #b69c83;
+  outline: none;
+}
+
+/* ========== BOTÃO PRINCIPAL ========== */
+
+/* Botão de ação principal com fundo escuro e fonte clara */
+.cta-button {
+  background-color: #5b3e2b;
+  color: #fffaf3;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Efeito de escala e cor ao passar o mouse */
+.cta-button:hover {
+  transform: scale(1.05);
+  background-color: #6d4c35;
+}
+
+/* ========== BOTÃO FIXO "ASSINE" DIREITA ========== */
+
+/* Botão fixado no canto superior direito com estilo destacado */
+.subscribe-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #A68A64;
+  color: #ffffff;
+  padding: 18px 28px;
+  font-size: 1.4em;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1001;
+}
+
+/* Efeito ao passar o mouse sobre o botão "Assine" */
+.subscribe-button:hover {
+  background-color: #6B4F3B;
+  transform: scale(1.05);
+}
+
+/* ========== RODAPÉ ========== */
+
+/* Estilo do rodapé com texto discreto */
+footer {
+  margin-top: 60px;
+  font-size: 0.9em;
+  color: #a3907d;
+  text-align: center;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+
+/* Ajustes de layout e tamanhos para telas menores que 600px */
+@media (max-width: 600px) {
+  /* Reduz o tamanho do título */
+  header h1 {
+    font-size: 2em;
+  }
+
+  /* Reduz o tamanho e padding do botão fixo */
+  .subscribe-button {
+    padding: 14px 20px;
+    font-size: 1em;
+  }
+}

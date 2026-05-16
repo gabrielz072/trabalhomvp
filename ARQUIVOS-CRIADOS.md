@@ -130,7 +130,7 @@ No arquivo `.env` (ajuste conforme necessário):
 DB_HOST=localhost              ← Host MySQL
 DB_USER=root                   ← Usuário MySQL
 DB_PASSWORD=                   ← Senha MySQL (deixar em branco se não configurou)
-DB_NAME=studio_zen             ← Nome do banco
+DB_NAME=circuito_verde             ← Nome do banco
 DB_PORT=3306                   ← Porta MySQL
 PORT=3000                      ← Porta do servidor Node
 NODE_ENV=development           ← Ambiente

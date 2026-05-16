@@ -3,7 +3,7 @@
 # Executar: PowerShell -ExecutionPolicy Bypass -File setup.ps1
 
 Write-Host "╔════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
-Write-Host "║    Studio Zen - Backend Setup Automático               ║" -ForegroundColor Cyan
+Write-Host "║    Circuito Verde - Backend Setup Automático               ║" -ForegroundColor Cyan
 Write-Host "╚════════════════════════════════════════════════════════╝" -ForegroundColor Cyan
 Write-Host ""
 

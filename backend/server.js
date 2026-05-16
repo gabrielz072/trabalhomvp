@@ -37,5 +37,5 @@ require('./config/database');
 
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
-  console.log(`💾 Banco de dados SQLite: studio_zen.db`);
+  console.log(`💾 Banco de dados SQLite: circuito_verde.db`);
 });
