@@ -17,10 +17,10 @@ app.use(express.json());
 ========================= */
 
 // Página principal
-app.use(express.static(path.join(__dirname, '../home/home')));
+app.use(express.static(path.join(__dirname, '../frontend/home')));
 
 // Outras páginas
-app.use(express.static(path.join(__dirname, '../home')));
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 /* =========================
    ROTAS DA API
@@ -33,7 +33,7 @@ app.use('/api/auth', authRoutes);
 ========================= */
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../home/home/index.html'));
+  res.sendFile(path.join(__dirname, '../frontend/home/index.html'));
 });
 
 /* =========================
@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 ========================= */
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../home/home/index.html'));
+  res.sendFile(path.join(__dirname, '../frontend/home/index.html'));
 });
 
 /* =========================
