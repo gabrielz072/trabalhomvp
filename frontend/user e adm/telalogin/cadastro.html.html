@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro - Circuito Terê Verde</title>
+  <link rel="stylesheet" href="cadastro.css" />
+</head>
+<body>
+
+  <!-- MENU INTERATIVO -->
+  <div class="menu-container">
+    <button class="menu-button">☰</button>
+
+    <div class="menu-items">
+      <a href="../home/index.html">🏠 Início</a>
+      <a href="../ajuda/ajuda.html">❓ Ajuda</a>
+      <a href="../historia/historia.html">📜 História</a>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO -->
+  <header>
+    <h1>Cadastro</h1>
+    <p>Crie sua conta para explorar Teresópolis.</p>
+  </header>
+
+  <main class="subscription-section">
+
+    <section class="form-section">
+
+      <h3>Crie sua conta</h3>
+
+      <form id="registro-form">
+
+        <label for="nome">Nome completo:</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          required
+          pattern="^\s*\S+\s+\S+.*$"
+          title="Insira nome e sobrenome."
+        />
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+        />
+
+        <label for="senha">Senha:</label>
+        <input
+          type="password"
+          id="senha"
+          name="senha"
+          required
+          minlength="6"
+          placeholder="Mínimo 6 caracteres"
+        />
+
+        <label for="confirmarSenha">Confirmar senha:</label>
+        <input
+          type="password"
+          id="confirmarSenha"
+          name="confirmarSenha"
+          required
+          minlength="6"
+        />
+
+        <button type="submit" class="cta-button">
+          🔐 Criar Conta
+        </button>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Circuito Terê Verde. Todos os direitos reservados.
+  </footer>
+
+  <script src="cadastro.js"></script>
+
+</body>
+</html>

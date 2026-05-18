@@ -18,9 +18,9 @@ document.getElementById("login-form").addEventListener("submit", async function(
       localStorage.setItem('usuario', JSON.stringify(data.usuario));
 
       if (data.usuario.tipo_usuario === 'admin') {
-        window.location.href = "../adm/adm.html";
+        window.location.href = "../../adm/adm.html";
       } else {
-        window.location.href = "../sons-login/som.html";
+        window.location.href = "../../sons-login/som.html";
       }
     } else {
       alert(data.erro || "Erro no login");

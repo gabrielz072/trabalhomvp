@@ -71,10 +71,6 @@ trabalhomvp/
 │   │   │   ├── 📁 img/
 │   │   │   └── 📁 sons/
 │   │   │
-│   │   └── 📁 Leitura/
-│   │       ├── 📄 index.html
-│   │       └── 📄 css.css
-│   │
 │   ├── 📁 home/                         ← Página Inicial
 │   │   ├── 📄 index.html
 │   │   ├── 📄 script.js
@@ -132,7 +128,6 @@ AUTENTICADO
 │                                     │
 │  sons-login/som.html   adm/adm.html │
 │  poesias-login/poesias │ Gerencia   │
-│  Leitura/              │ Usuários   │
 └─────────────────────────────────────┘
 ```
 

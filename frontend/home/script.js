@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     // Event listeners para botões do main
     const subscribeButton = document.querySelector(".subscribe-button");

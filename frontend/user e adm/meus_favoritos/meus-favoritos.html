@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+
+  <title>Meus Favoritos - Circuito Terê Verde</title>
+
+  <link rel="stylesheet" href="favoritos.css">
+
+  <link rel="icon"
+        type="image/png"
+        href="../favicon.png">
+
+</head>
+
+<body>
+
+  <!-- MENU LATERAL -->
+  <aside class="sidebar">
+
+    <h2>Circuito Terê Verde</h2>
+
+    <nav>
+
+      <ul class="nav-links">
+
+        <li>
+          <a href="../sons-login/som.html">
+            🎵 Home
+          </a>
+        </li>
+
+        <li>
+          <a href="../onde_ir/onde_ir.html">
+            🌿 Onde ir?
+          </a>
+        </li>
+
+        <li>
+          <a href="../favoritos/favoritos.html"
+             class="active">
+            💚 Meus Favoritos
+          </a>
+        </li>
+
+
+      </ul>
+
+    </nav>
+
+  </aside>
+
+  <!-- CONTEÚDO -->
+  <main class="content">
+
+    <!-- TOPO -->
+    <header class="user-header">
+
+      <div class="user-menu" id="userMenu">
+
+        <span>Olá, Camila 🌿</span>
+
+        <div class="dropdown" id="dropdownMenu">
+
+          <a href="#">
+            Configurações
+          </a>
+
+          <a href="#">
+            Sair
+          </a>
+
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- TÍTULO -->
+    <section class="page-title">
+
+      <h1>Meus Favoritos</h1>
+
+      <p>
+        Todos os locais que você salvou
+        para visitar futuramente.
+      </p>
+
+    </section>
+
+    <!-- GRID -->
+    <section class="favorites-grid"
+             id="favoritesGrid">
+
+      <!-- CARDS VIA JS -->
+
+    </section>
+
+    <!-- VAZIO -->
+    <div class="empty-state"
+         id="emptyState">
+
+      <div class="empty-icon">
+        🌿
+      </div>
+
+      <h2>
+        Nenhum local salvo ainda
+      </h2>
+
+      <p>
+        Favorite trilhas e locais
+        para encontrá-los aqui depois.
+      </p>
+
+      <a href="../onde_ir/onde_ir.html"
+         class="explore-button">
+
+        Explorar Trilhas
+
+      </a>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Circuito Terê Verde.
+    Todos os direitos reservados.
+  </footer>
+
+  <!-- AUTH -->
+  <script src="../../auth-utils.js"></script>
+
+  <script>
+
+    Auth.proteger();
+
+    const u = Auth.getUsuario();
+
+    if (u) {
+
+      document.querySelector(".user-menu span")
+      .textContent =
+      `Olá, ${u.nome} 🌿`;
+
+    }
+
+  </script>
+
+  <!-- SCRIPT -->
+  <script src="favoritos.js"></script>
+
+</body>
+
+</html>
