@@ -7,41 +7,42 @@ const path = require('path');
 const authRoutes = require('./routes/auth');
 
 const app = express();
+
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
+
 app.use(express.json());
 
 /* =========================
-   ARQUIVOS ESTÁTICOS
+   FRONTEND
 ========================= */
 
-// Página principal
-app.use(express.static(path.join(__dirname, '../frontend/home')));
-
-// Outras páginas
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(
+  express.static(
+    path.join(__dirname, '../frontend')
+  )
+);
 
 /* =========================
-   ROTAS DA API
+   API
 ========================= */
 
 app.use('/api/auth', authRoutes);
 
 /* =========================
-   ROTA PRINCIPAL
+   HOME
 ========================= */
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/home/index.html'));
-});
 
-/* =========================
-   FALLBACK
-========================= */
+  res.sendFile(
+    path.join(
+      __dirname,
+      '../frontend/home/index.html'
+    )
+  );
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/home/index.html'));
 });
 
 /* =========================
@@ -51,10 +52,13 @@ app.get('*', (req, res) => {
 require('./config/database');
 
 /* =========================
-   START SERVER
+   SERVER
 ========================= */
 
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
-  console.log(`💾 Banco de dados SQLite conectado`);
+
+  console.log(
+    `🚀 Servidor rodando em http://localhost:${PORT}`
+  );
+
 });
