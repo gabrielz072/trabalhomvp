@@ -23,18 +23,18 @@ const Auth = {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('usuario');
-    window.location.href = 'login.html';
+    window.location.href = "/user_adm/login-on/som.html";
   },
 
   proteger(adminOnly = false) {
     if (!this.getToken()) {
-      window.location.href = 'login.html';
+      window.location.href = "/user_adm/login-on/som.html";
       return false;
     }
     
     if (adminOnly && !this.isAdmin()) {
       alert('Acesso só para admin');
-      window.location.href = '../index.html';
+      window.location.href = "/user_adm/adm/adm.html";
       return false;
     }
     
