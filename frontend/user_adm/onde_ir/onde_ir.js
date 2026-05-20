@@ -1,18 +1,45 @@
+// =========================
+// MENU DO USUÁRIO
+// =========================
+
+const userMenu =
+  document.getElementById("userMenu");
+
+const dropdownMenu =
+  document.getElementById("dropdownMenu");
+
+userMenu.addEventListener("click", () => {
+
+  dropdownMenu.classList.toggle("show");
+
+});
+
+document.addEventListener("click", (e) => {
+
+  if (!userMenu.contains(e.target)) {
+
+    dropdownMenu.classList.remove("show");
+
+  }
+
+});
+
+
 // ================================
-// FAVORITOS POR USUÁRIO (onde_ir.js)
+// FAVORITOS POR USUÁRIO (API)
 // ================================
 
-const usuario = Auth.getUsuario();
+const usuario =
+  Auth.getUsuario();
 
-const storageKey =
-  `favoritos_${usuario.email}`;
+const token =
+  localStorage.getItem("token");
 
 const favoriteButtons =
   document.querySelectorAll(".favorite-btn");
 
-// Carrega favoritos
-let favoritos =
-  JSON.parse(localStorage.getItem(storageKey)) || [];
+// Favoritos vindos do banco
+let favoritos = [];
 
 
 // ================================
@@ -22,15 +49,24 @@ let favoritos =
 function trackClick(name) {
 
   const data =
-    JSON.parse(localStorage.getItem("analytics_clicks")) || [];
+    JSON.parse(
+      localStorage.getItem("analytics_clicks")
+    ) || [];
 
   const item =
     data.find(i => i.name === name);
 
   if (item) {
+
     item.count++;
+
   } else {
-    data.push({ name, count: 1 });
+
+    data.push({
+      name,
+      count: 1
+    });
+
   }
 
   localStorage.setItem(
@@ -42,7 +78,46 @@ function trackClick(name) {
 
 
 // ================================
-// ATUALIZAR BOTÕES NA ENTRADA
+// CARREGAR FAVORITOS DA API
+// ================================
+
+async function carregarFavoritos() {
+
+  try {
+
+    const response =
+      await fetch("/api/favoritos", {
+
+        method: "GET",
+
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+
+      });
+
+    const data =
+      await response.json();
+
+    favoritos =
+      data.favoritos || [];
+
+    atualizarBotoes();
+
+  } catch (err) {
+
+    console.error(
+      "Erro ao carregar favoritos",
+      err
+    );
+
+  }
+
+}
+
+
+// ================================
+// ATUALIZAR BOTÕES
 // ================================
 
 function atualizarBotoes() {
@@ -56,14 +131,22 @@ function atualizarBotoes() {
       card.querySelector("h2").innerText;
 
     const existe =
-      favoritos.some(item => item.nome === nome);
+      favoritos.some(
+        item => item.nome === nome
+      );
 
     if (existe) {
+
       button.classList.add("active");
+
       button.innerHTML = "♥";
+
     } else {
+
       button.classList.remove("active");
+
       button.innerHTML = "♡";
+
     }
 
   });
@@ -72,79 +155,183 @@ function atualizarBotoes() {
 
 
 // ================================
-// CLIQUE FAVORITAR / DESFAVORITAR
+// FAVORITAR / DESFAVORITAR
 // ================================
 
 favoriteButtons.forEach(button => {
 
-  button.addEventListener("click", () => {
+  button.addEventListener(
+    "click",
+    async () => {
 
-    const card =
-      button.closest(".trail-card");
+      const card =
+        button.closest(".trail-card");
 
-    const nome =
-      card.querySelector("h2").innerText;
+      const nome =
+        card.querySelector("h2").innerText;
 
-    const imagem =
-      card.querySelector("img").src;
+      const imagem =
+        card.querySelector("img").src;
 
-    const descricao =
-      card.querySelector(".trail-description").innerText;
+      const descricao =
+        card.querySelector(
+          ".trail-description"
+        ).innerText;
 
-    const localizacao =
-      card.querySelector(".trail-location").innerText;
+      const localizacao =
+        card.querySelector(
+          ".trail-location"
+        ).innerText;
 
-    favoritos =
-      JSON.parse(localStorage.getItem(storageKey)) || [];
+      const favoritoExistente =
+        favoritos.find(
+          item => item.nome === nome
+        );
 
-    const index =
-      favoritos.findIndex(item => item.nome === nome);
+      // ======================
+      // ADICIONAR
+      // ======================
 
-    // ======================
-    // ADICIONAR
-    // ======================
-    if (index === -1) {
+      if (!favoritoExistente) {
 
-      favoritos.push({
-        nome,
-        imagem,
-        descricao,
-        localizacao
-      });
+        try {
 
-      button.classList.add("active");
-      button.innerHTML = "♥";
+          const response =
+            await fetch(
+              "/api/favoritos",
+              {
 
-      trackClick("favoritou");
+                method: "POST",
+
+                headers: {
+
+                  "Content-Type":
+                    "application/json",
+
+                  Authorization:
+                    `Bearer ${token}`
+
+                },
+
+                body: JSON.stringify({
+                  nome,
+                  imagem,
+                  descricao,
+                  localizacao
+                })
+
+              }
+            );
+
+          const data =
+            await response.json();
+
+          favoritos.push({
+
+            id:
+              data.favoritoId,
+
+            nome,
+            imagem,
+            descricao,
+            localizacao
+
+          });
+
+          button.classList.add("active");
+
+          button.innerHTML = "♥";
+
+          trackClick("favoritou");
+
+        } catch (err) {
+
+          console.error(
+            "Erro ao favoritar",
+            err
+          );
+
+        }
+
+      }
+
+      // ======================
+      // REMOVER
+      // ======================
+
+      else {
+
+        try {
+
+          await fetch(
+            `/api/favoritos/${favoritoExistente.id}`,
+            {
+
+              method: "DELETE",
+
+              headers: {
+                Authorization:
+                  `Bearer ${token}`
+              }
+
+            }
+          );
+
+          favoritos =
+            favoritos.filter(
+              item => item.nome !== nome
+            );
+
+          button.classList.remove("active");
+
+          button.innerHTML = "♡";
+
+          trackClick("desfavoritou");
+
+        } catch (err) {
+
+          console.error(
+            "Erro ao remover favorito",
+            err
+          );
+
+        }
+
+      }
 
     }
 
-    // ======================
-    // REMOVER
-    // ======================
-    else {
-
-      favoritos.splice(index, 1);
-
-      button.classList.remove("active");
-      button.innerHTML = "♡";
-
-      trackClick("desfavoritou");
-
-    }
-
-    localStorage.setItem(
-      storageKey,
-      JSON.stringify(favoritos)
-    );
-
-  });
+  );
 
 });
 
 
 // ================================
-// INICIALIZAR ESTADO
+// INICIALIZAR
 // ================================
 
-atualizarBotoes();
+carregarFavoritos();
+
+
+// =========================
+// LOGOUT
+// =========================
+
+const logoutBtn =
+  document.getElementById("logoutBtn");
+
+logoutBtn.addEventListener(
+  "click",
+  (e) => {
+
+    e.preventDefault();
+
+    localStorage.removeItem("token");
+
+    localStorage.removeItem("usuario");
+
+    window.location.href =
+      "/user_adm/telalogin/login.html";
+
+  }
+);

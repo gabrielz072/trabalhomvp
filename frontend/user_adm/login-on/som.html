@@ -20,9 +20,27 @@
     <nav>
 
       <ul class="nav-links">
-        <li><a href="../login-on/som.html" class="active">🎵 Sons</a></li>
-        <li><a href="../onde_ir/onde_ir.html">🌿 Onde ir?</a></li>
+
+        <li>
+          <a href="../login-on/som.html" class="active">
+            🎵 Sons
+          </a>
+        </li>
+
+        <li>
+          <a href="../onde_ir/onde_ir.html">
+            🌿 Onde ir?
+          </a>
+        </li>
+
+        <li>
+          <a href="../meus_favoritos/meus-favoritos.html">
+            💚 Meus Favoritos
+          </a>
+        </li>
+
       </ul>
+
     </nav>
 
   </aside>
@@ -34,12 +52,15 @@
     <header class="user-header">
 
       <div class="user-menu" id="userMenu">
-        <span>Olá, Camila 🌿</span>
+        <span>Olá 🌿</span>
 
-        <div class="dropdown" id="dropdownMenu">
-          <a href="#">Configurações</a>
-          <a href="#">Sair</a>
-        </div>
+<div class="dropdown" id="dropdownMenu">
+
+  <a href="#" id="logoutBtn">
+    🚪 Sair
+  </a>
+
+</div>
 
       </div>
 
@@ -170,17 +191,21 @@
 
   <script>
 
-    // Auth.proteger();
+  // Protege a página
+  Auth.proteger();
 
-   // const u = Auth.getUsuario();
+  // Pega usuário logado
+  const u = Auth.getUsuario();
 
-   // if (u) {
-   //   document.querySelector(
-     //   '.user-menu span'
-    //  ).textContent = `Olá, ${u.nome} 🌿`;
-    //} 
+  // Exibe nome do usuário
+  if (u) {
 
-  </script>
+    document.querySelector('.user-menu span')
+      .textContent = `Olá, ${u.nome} 🌿`;
+
+  }
+
+</script>
 
   <!-- JS -->
   <script src="som.js"></script>

@@ -1,4 +1,5 @@
 const Auth = {
+
   salvarToken(token) {
     localStorage.setItem('token', token);
   },
@@ -23,21 +24,32 @@ const Auth = {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('usuario');
-    window.location.href = "/user_adm/login-on/som.html";
+
+    window.location.href =
+      "/user_adm/telalogin/login.html";
   },
 
   proteger(adminOnly = false) {
+
     if (!this.getToken()) {
-      window.location.href = "/user_adm/login-on/som.html";
+
+      window.location.href =
+        "/user_adm/telalogin/login.html";
+
       return false;
     }
-    
+
     if (adminOnly && !this.isAdmin()) {
+
       alert('Acesso só para admin');
-      window.location.href = "/user_adm/adm/adm.html";
+
+      window.location.href =
+        "/user_adm/login-on/som.html";
+
       return false;
     }
-    
+
     return true;
   }
+
 };

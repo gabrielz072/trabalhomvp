@@ -215,3 +215,45 @@ footer {
     min-width: 140px;
   }
 }
+
+/* BOTÕES CADASTRO + LOGIN */
+
+.auth-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.auth-buttons .cta-button,
+.login-button {
+  flex: 1;
+  text-align: center;
+}
+
+.login-button {
+  background-color: transparent;
+  border: 2px solid #1A481F;
+  color: #1A481F;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #1A481F;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 600px) {
+
+  .auth-buttons {
+    flex-direction: column;
+  }
+
+}

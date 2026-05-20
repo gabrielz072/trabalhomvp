@@ -69,6 +69,24 @@
 
   </div>
 
+    <script src="../../auth-utils.js"></script>
+
+  <script>
+
+    Auth.proteger(true);
+
+    const u = Auth.getUsuario();
+
+    if (u) {
+
+      document.querySelector(
+        '.admin-user span'
+      ).textContent = `Olá, ${u.nome} 👑`;
+
+    }
+
+  </script>
+
   <script src="adm.js"></script>
 
 </body>

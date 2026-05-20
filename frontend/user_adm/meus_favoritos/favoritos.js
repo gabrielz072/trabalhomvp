@@ -4,10 +4,39 @@
 
 const usuario = Auth.getUsuario();
 
-const storageKey =
-  `favoritos_${usuario.email}`;
+const token =
+  localStorage.getItem("token");
 
+// =========================
+// MENU DO USUÁRIO
+// =========================
+
+const userMenu =
+  document.getElementById("userMenu");
+
+const dropdownMenu =
+  document.getElementById("dropdownMenu");
+
+userMenu.addEventListener("click", () => {
+
+  dropdownMenu.classList.toggle("show");
+
+});
+
+document.addEventListener("click", (e) => {
+
+  if (!userMenu.contains(e.target)) {
+
+    dropdownMenu.classList.remove("show");
+
+  }
+
+});
+
+// =========================
 // ELEMENTOS
+// =========================
+
 const favoritesGrid =
   document.getElementById("favoritesGrid");
 
@@ -15,35 +44,67 @@ const emptyState =
   document.getElementById("emptyState");
 
 // =========================
-// PEGAR FAVORITOS
+// PEGAR FAVORITOS DA API
 // =========================
 
-function getFavoritos() {
-  return JSON.parse(localStorage.getItem(storageKey)) || [];
+async function getFavoritos() {
+
+  try {
+
+    const response =
+      await fetch("/api/favoritos", {
+
+        method: "GET",
+
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+
+      });
+
+    const data =
+      await response.json();
+
+    return data.favoritos || [];
+
+  } catch (error) {
+
+    console.error(
+      "Erro ao buscar favoritos:",
+      error
+    );
+
+    return [];
+
+  }
+
 }
 
 // =========================
 // RENDERIZAR
 // =========================
 
-function renderFavoritos() {
+async function renderFavoritos() {
 
-  const favoritos = getFavoritos();
+  const favoritos =
+    await getFavoritos();
 
   favoritesGrid.innerHTML = "";
 
   if (favoritos.length === 0) {
 
     emptyState.style.display = "block";
+
     return;
 
   }
 
   emptyState.style.display = "none";
 
-  favoritos.forEach((local, index) => {
+  favoritos.forEach((local) => {
 
-    const card = document.createElement("article");
+    const card =
+      document.createElement("article");
 
     card.classList.add("favorite-card");
 
@@ -65,7 +126,10 @@ function renderFavoritos() {
 
         <div class="favorite-actions">
 
-          <button class="remove-btn" data-index="${index}">
+          <button 
+            class="remove-btn"
+            data-id="${local.id}"
+          >
             Remover
           </button>
 
@@ -94,22 +158,36 @@ function ativarRemocao() {
 
   buttons.forEach(button => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener("click", async () => {
 
-      const index =
-        parseInt(button.getAttribute("data-index"));
+      const id =
+        button.getAttribute("data-id");
 
-      let favoritos =
-        getFavoritos();
+      try {
 
-      favoritos.splice(index, 1);
+        await fetch(
+          `/api/favoritos/${id}`,
+          {
 
-      localStorage.setItem(
-        storageKey,
-        JSON.stringify(favoritos)
-      );
+            method: "DELETE",
 
-      renderFavoritos();
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+
+          }
+        );
+
+        renderFavoritos();
+
+      } catch (error) {
+
+        console.error(
+          "Erro ao remover favorito:",
+          error
+        );
+
+      }
 
     });
 
@@ -122,3 +200,25 @@ function ativarRemocao() {
 // =========================
 
 renderFavoritos();
+
+// =========================
+// LOGOUT
+// =========================
+
+const logoutBtn =
+  document.getElementById("logoutBtn");
+
+logoutBtn.addEventListener("click", (e) => {
+
+  e.preventDefault();
+
+  // Remove dados do usuário
+  localStorage.removeItem("token");
+
+  localStorage.removeItem("usuario");
+
+  // Redireciona para login
+  window.location.href =
+    "/user_adm/telalogin/login.html";
+
+});

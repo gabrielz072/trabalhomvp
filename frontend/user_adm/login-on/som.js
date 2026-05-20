@@ -219,3 +219,24 @@ function stopBreathing() {
   clearInterval(breathingInterval);
 
 }
+
+// =========================
+// LOGOUT
+// =========================
+
+const logoutBtn =
+  document.getElementById("logoutBtn");
+
+logoutBtn.addEventListener("click", (e) => {
+
+  e.preventDefault();
+
+  // Remove dados do usuário
+  localStorage.removeItem("token");
+  localStorage.removeItem("usuario");
+
+  // Redireciona para login
+  window.location.href =
+    "/user_adm/telalogin/login.html";
+
+});
