@@ -17,6 +17,19 @@ db.serialize(() => {
     )
   `);
 
+db.run(`
+  CREATE TABLE IF NOT EXISTS favoritos (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    usuario_id INTEGER NOT NULL,
+    nome TEXT NOT NULL,
+    imagem TEXT,
+    descricao TEXT,
+    localizacao TEXT,
+    FOREIGN KEY(usuario_id)
+    REFERENCES usuarios(id)
+  )
+`);
+
   db.run(`
     INSERT OR IGNORE INTO usuarios (id, nome, email, senha, tipo_usuario) 
     VALUES (1, 'Administrador', 'admin@studiuzen.com', '${adminHash}', 'admin')

@@ -4,11 +4,16 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 
-const authRoutes = require('./routes/auth');
+const authRoutes =
+  require('./routes/auth');
+
+const favoritosRoutes =
+  require('./routes/favoritos');
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT =
+  process.env.PORT || 3000;
 
 app.use(cors());
 
@@ -28,7 +33,15 @@ app.use(
    API
 ========================= */
 
-app.use('/api/auth', authRoutes);
+app.use(
+  '/api/auth',
+  authRoutes
+);
+
+app.use(
+  '/api/favoritos',
+  favoritosRoutes
+);
 
 /* =========================
    HOME
