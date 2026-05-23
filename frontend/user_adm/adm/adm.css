@@ -250,6 +250,34 @@ body {
   background-color: #2F8F3A;
 }
 
+/* ====== BOTÕES DE ANÁLISES ====== */
+#clearAnalytics {
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #246D2C 0%, #2F8F3A 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(36, 109, 44, 0.25);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#clearAnalytics:hover {
+  background: linear-gradient(135deg, #2F8F3A 0%, #1A481F 100%);
+  box-shadow: 0 8px 24px rgba(36, 109, 44, 0.4);
+  transform: translateY(-2px);
+}
+
+#clearAnalytics:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(36, 109, 44, 0.3);
+}
+
 /* ====== GESTÃO DE USUÁRIOS ====== */
 .user-management {
   margin-top: 30px;
