@@ -17,9 +17,9 @@
 
     <nav>
       <ul>
-        <li><a href="../adm.html" class="active">📊 Analytics</a></li>
-        <li><a href="../Relatorios/relatorios.html">📈 Relatórios</a></li>
-        <li><a href="../Conteúdos/conteudos.html">📜 Conteúdos</a></li>
+        <li><a href="adm.html" class="active">📊 Analytics</a></li>
+        <li><a href="Relatorios/relatorios.html">📈 Relatórios</a></li>
+        <li><a href="Conteúdos/conteudos.html">📜 Conteúdos</a></li>
       </ul>
     </nav>
   </aside>
@@ -64,6 +64,31 @@
       <button id="clearAnalytics">
         Limpar dados
       </button>
+
+    </section>
+
+    <!-- GESTÃO DE CLIENTES -->
+    <section class="user-management">
+
+      <h2>Gerenciar Clientes</h2>
+
+      <div id="userMessage" role="status" aria-live="polite"></div>
+
+      <div class="users-table-wrap">
+        <table id="usersTable">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Tipo</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- linhas serão inseridas via JS -->
+          </tbody>
+        </table>
+      </div>
 
     </section>
 
