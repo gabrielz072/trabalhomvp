@@ -32,7 +32,7 @@ db.run(`
 
   db.run(`
     INSERT OR IGNORE INTO usuarios (id, nome, email, senha, tipo_usuario) 
-    VALUES (1, 'Administrador', 'admin@circuitoverde.com', '${adminHash}', 'admin')
+    VALUES (1, 'Administrador', 'admin@studiuzen.com', '${adminHash}', 'admin')
   `);
 });
 
