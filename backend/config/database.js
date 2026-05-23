@@ -32,8 +32,14 @@ db.run(`
 
   db.run(`
     INSERT OR IGNORE INTO usuarios (id, nome, email, senha, tipo_usuario) 
-    VALUES (1, 'Administrador', 'admin@studiuzen.com', '${adminHash}', 'admin')
+    VALUES (1, 'Administrador', 'admin@circuitoverde.com', '${adminHash}', 'admin')
   `);
+
+  // Garante que o email do admin seja atualizado caso o registro já exista.
+  db.run(
+    `UPDATE usuarios SET email = ? WHERE id = 1`,
+    ['admin@circuitoverde.com']
+  );
 });
 
 module.exports = db;
