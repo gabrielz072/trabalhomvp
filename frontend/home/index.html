@@ -9,22 +9,28 @@
 </head>
 <body>
     <a href="../user_adm/telalogin/login.html">
-    <button class="subscribe-button">ASSINANTES</button>
+    <button class="subscribe-button">Entrar</button>
     </a>
 
     <div class="menu-container">
-        <button class="menu-button">☰</button>
-        <div class="menu-items">
-            <a href="index.html">🏠 Início</a>
-            <a href="../locais/locais.html">❓ Onde ir?</a>
-            <a href="../historia/historia.html">📜 História</a>
-        </div>
+
+    <button class="menu-button">☰</button>
+
+    <div class="menu-items">
+        <a href="#">🏠 Início</a>
+        <a href="#locais">❓ Onde ir?</a>
+        <a href="#historia">📜 História</a>
+        <a href="#clima">🌤️ Clima</a>
     </div>
 
+</div>
+
     <header>
-        <h1>Circuito Terê Verde</h1>
-        <p>Biodiversidade, trilhas, eventos e condições das atrações naturais</p>
-    </header>
+    <span class="subtitle">ECOTURISMO • TRILHAS • NATUREZA</span>
+
+    <h1>Circuito Terê Verde</h1>
+
+</header>
 
     <main>
         <ul class='slider'>
@@ -176,13 +182,74 @@
 
 </div>
 
-    <footer>
-        © 2026 Circuito Terê Verde. Todos os direitos reservados.
-    </footer>
+<!-- HISTÓRIA -->
+
+<section id="historia" class="historia-section">
+
+  <h2>📜 História de Teresópolis</h2>
+
+  <img
+    src="../home/img/dedo_de_deus.jpg"
+    alt="Dedo de Deus"
+    class="historia-img"
+  >
+
+  <p>
+    Teresópolis é uma cidade localizada na região serrana do estado do Rio de Janeiro,
+    conhecida por suas paisagens montanhosas, clima agradável e forte conexão com a natureza.
+  </p>
+
+  <p>
+    O município foi fundado oficialmente em 1891 e recebeu esse nome em homenagem
+    à imperatriz Teresa Cristina, esposa de Dom Pedro II.
+  </p>
+
+  <p>
+    Antes da colonização, a região era habitada por povos indígenas e,
+    ao longo do século XIX, começou a receber fazendas, caminhos comerciais
+    e moradores atraídos pelas terras férteis e pelo clima mais ameno da serra.
+  </p>
+
+  <p>
+    Com o passar do tempo, Teresópolis tornou-se um dos principais destinos turísticos
+    da Serra Fluminense, especialmente por suas trilhas, cachoeiras e paisagens naturais.
+  </p>
+
+</section>
+
+<!-- LOCAIS -->
+
+<section id="locais" class="locais-section">
+
+    <h2>🏔️ Descubra Teresópolis</h2>
+
+    <div id="cards-locais" class="cards-locais">
+
+        <p>Carregando locais...</p>
+
+    </div>
+
+</section>
+
+<!-- CLIMA -->
+
+<section id="clima" class="weather-card">
+
+    <h2>🌤️ Clima em Teresópolis</h2>
+
+    <div id="weather-info" class="weather-container">
+        Carregando clima...
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Circuito Terê Verde. Todos os direitos reservados.
+</footer>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="/home/uscript.js"></script>
+    <script src="/home/script.js"></script>
     <script src="/home/carrimg/js.js"></script>
 </body>
 </html>
