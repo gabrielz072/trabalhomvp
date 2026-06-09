@@ -32,8 +32,7 @@
         <span>Administrador</span>
 
         <div class="dropdown" id="dropdownMenu">
-          <a href="#">Configurações</a>
-          <a href="#">Sair</a>
+          <a href="../../home/index.html">Sair</a>
         </div>
       </div>
     </header>
@@ -109,6 +108,28 @@
       ).textContent = `Olá, ${u.nome} 👑`;
 
     }
+
+    // Controlar dropdown
+    const adminUser = document.getElementById('adminUser');
+    const dropdown = document.getElementById('dropdownMenu');
+
+    adminUser.addEventListener('click', () => {
+      dropdown.classList.toggle('show');
+    });
+
+    // Fechar dropdown ao clicar fora
+    document.addEventListener('click', (e) => {
+      if (!adminUser.contains(e.target)) {
+        dropdown.classList.remove('show');
+      }
+    });
+
+    // Fechar dropdown ao clicar em um link
+    dropdown.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        dropdown.classList.remove('show');
+      });
+    });
 
   </script>
 
