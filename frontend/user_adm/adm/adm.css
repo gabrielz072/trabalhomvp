@@ -22,65 +22,33 @@ body {
   overflow: hidden;
 }
 
-/* MENU LATERAL */
-.sidebar {
-  width: 240px;
-  background-color: #fffaf6;
-  padding: 30px 20px;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-}
-
-.sidebar h2 {
-  font-family: 'Morally Serif', serif;
-  font-size: 1.8em;
-  color: #1A481F;
-  margin-bottom: 40px;
-  text-align: center;
-  font-weight: normal;
-}
-
-.sidebar nav ul {
-  list-style: none;
-}
-
-.sidebar nav ul li {
-  margin-bottom: 20px;
-}
-
-.sidebar nav ul li a {
-  text-decoration: none;
-  color: #1A481F;
-  font-size: 1.1em;
-  padding: 10px 16px;
-  display: block;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.sidebar nav ul li a:hover {
-  background-color: #d4e8d4;
-}
-
-/* ÁREA PRINCIPAL */
+/* ÁREA PRINCIPAL - SEM SIDEBAR */
 .main-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 20px 40px;
+  padding: 30px 50px;
   overflow-y: auto;
   position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 /* TOPO DIREITO */
 .admin-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
   position: relative;
+}
+
+.admin-header h1 {
+  font-family: 'Morally Serif', serif;
+  font-size: 2.2em;
+  color: #1A481F;
+  font-weight: normal;
 }
 
 .admin-user {
@@ -134,6 +102,7 @@ body {
   background-color: #ffffffea;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
 }
 
 .dashboard h1 {
@@ -143,6 +112,16 @@ body {
   font-weight: normal;
 }
 
+.dashboard h2 {
+  font-family: 'Morally Serif', serif;
+  font-size: 1.8em;
+  color: #1A481F;
+  margin-bottom: 20px;
+  font-weight: normal;
+  border-bottom: 2px solid #d4e8d4;
+  padding-bottom: 10px;
+}
+
 .dashboard p {
   font-size: 1.1em;
   color: #2E7D32;
@@ -150,16 +129,17 @@ body {
 
 /* RESPONSIVO */
 @media (max-width: 768px) {
-  .sidebar {
-    display: none;
-  }
-
   .main-content {
     padding: 20px;
   }
 
   .admin-header {
-    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .admin-header h1 {
+    font-size: 1.8em;
   }
 }
 
@@ -351,4 +331,118 @@ body {
 
 @media (max-width: 900px) {
   #usersTable { min-width: 540px; }
+}
+
+/* ====== GRÁFICOS EM GRID ====== */
+.charts-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.charts-grid .chart-box {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* ====== GRÁFICO DE PIZZA ====== */
+.pie-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pie {
+  width: 140px;
+  height: 140px;
+  background: conic-gradient(
+    #246D2C 0% 40%,
+    #1A481F 40% 70%,
+    #2F8F3A 70% 100%
+  );
+  border-radius: 50%;
+}
+
+.legend {
+  list-style: none;
+  margin-top: 15px;
+  padding: 0;
+  font-size: 0.9em;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.legend span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+
+/* ====== LISTA DE CONTEÚDOS ====== */
+.content-list {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.content-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fffaf6;
+  padding: 14px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.content-item strong {
+  font-size: 1em;
+  color: #1A481F;
+}
+
+.content-item span {
+  color: #2E7D32;
+  font-size: 0.9em;
+}
+
+.content-item div {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn, .remove-btn {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s;
+}
+
+.edit-btn {
+  background-color: #246D2C;
+  color: white;
+  margin-right: 0;
+}
+
+.edit-btn:hover {
+  background-color: #1A481F;
+}
+
+.remove-btn {
+  background-color: #d96d6d;
+  color: white;
+}
+
+.remove-btn:hover {
+  background-color: #b85353;
 }

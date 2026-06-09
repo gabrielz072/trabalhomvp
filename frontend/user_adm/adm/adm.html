@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Analytics - Circuito Terê Verde</title>
+  <title>Administração - Circuito Terê Verde</title>
 
   <link rel="stylesheet" href="adm.css" />
   <link rel="icon" type="image/png" href="../../favicon.png">
@@ -11,35 +11,26 @@
 
 <body>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <h2>Circuito Terê Verde</h2>
-
-    <nav>
-      <ul>
-        <li><a href="adm.html" class="active">👥 Clientes</a></li>  
-        <li><a href="Relatorios/relatorios.html">📈 Relatórios</a></li>
-        <li><a href="Conteúdos/conteudos.html">📜 Conteúdos</a></li>
-      </ul>
-    </nav>
-  </aside>
-
-  <!-- CONTEÚDO -->
+  <!-- CONTEÚDO PRINCIPAL -->
   <div class="main-content">
 
     <header class="admin-header">
+      <h1>Circuito Terê Verde - Administração</h1>
       <div class="admin-user" id="adminUser">
         <span>Administrador</span>
 
         <div class="dropdown" id="dropdownMenu">
-          <a href="../../home/index.html">Sair</a>
+          <a href="../../home/index.html">🏠 Menu Principal</a>
+          <a href="#">Configurações</a>
+          <a href="#">Sair</a>
         </div>
       </div>
     </header>
 
+    <!-- ANÁLISES DE CLIQUES -->
     <section class="dashboard">
 
-      <h1>Análises de Cliques</h1>
+      <h2>Análises de Cliques</h2>
 
       <!-- RESUMO -->
       <div class="summary-cards">
@@ -64,6 +55,96 @@
         Limpar dados
       </button>
 
+    </section>
+
+    <!-- RELATÓRIOS -->
+    <section class="dashboard">
+      <h2>Relatórios Mensais</h2>
+
+      <!-- Botões de filtro por período -->
+      <div class="report-filters">
+        <button class="report-btn">Últimos 7 dias</button>
+        <button class="report-btn">Últimos 30 dias</button>
+        <button class="report-btn">Ano atual</button>
+      </div>
+
+      <!-- Gráficos simulados (barra e pizza) -->
+      <div class="charts-grid">
+        <!-- Gráfico de barras -->
+        <div class="chart-box">
+          <h3>Procuras por Semana</h3>
+          <div class="bar-chart">
+            <div style="height: 70%" title="70%">Seg</div>
+            <div style="height: 50%" title="50%">Ter</div>
+            <div style="height: 60%" title="60%">Qua</div>
+            <div style="height: 80%" title="80%">Qui</div>
+            <div style="height: 90%" title="90%">Sex</div>
+            <div style="height: 40%" title="40%">Sáb</div>
+            <div style="height: 30%" title="30%">Dom</div>
+          </div>
+        </div>
+
+        <!-- Gráfico de pizza -->
+        <div class="chart-box">
+          <h3>Tipos de Buscas</h3>
+          <div class="pie-chart">
+            <div class="pie"></div>
+            <ul class="legend">
+              <li><span style="background:#a68a64;"></span>Relaxamento</li>
+              <li><span style="background:#6b4f3b;"></span>Informação</li>
+              <li><span style="background:#d6c1b0;"></span>Consulta</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GERENCIAMENTO DE CONTEÚDOS -->
+    <section class="dashboard">
+      <h2>Gerenciamento de Conteúdos</h2>
+
+      <!-- Botões de ação -->
+      <div class="report-filters">
+        <button class="report-btn" onclick="adicionarConteudo()">➕ Adicionar Conteúdo</button>
+      </div>
+
+      <!-- Lista de conteúdos existentes -->
+      <div class="content-list">
+        <div class="content-item">
+          <strong>Respire com tranquilidade Sons</strong>
+          <span>Tipo: Áudio</span>
+          <div>
+            <button class="edit-btn" onclick="editarConteudo(this)">Editar</button>
+            <button class="remove-btn" onclick="removerConteudo(this)">Remover</button>
+          </div>
+        </div>
+        <div class="content-item">
+          <strong>Trilhas e Atrações Naturais</strong>
+          <span>Tipo: Vídeo</span>
+          <div>
+            <button class="edit-btn" onclick="editarConteudo(this)">Editar</button>
+            <button class="remove-btn" onclick="removerConteudo(this)">Remover</button>
+          </div>
+        </div>
+        <div class="content-item">
+          <strong>A Importância da Biodiversidade</strong>
+          <span>Tipo: Texto</span>
+          <div>
+            <button class="edit-btn" onclick="editarConteudo(this)">Editar</button>
+            <button class="remove-btn" onclick="removerConteudo(this)">Remover</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gráfico de distribuição de conteúdos -->
+      <div class="chart-box">
+        <h3>Distribuição de Conteúdos</h3>
+        <div class="bar-chart" id="graficoConteudo">
+          <div style="height: 70%" title="Áudio: 7">Áudio</div>
+          <div style="height: 50%" title="Vídeo: 5">Vídeo</div>
+          <div style="height: 30%" title="Texto: 3">Texto</div>
+        </div>
+      </div>
     </section>
 
     <!-- GESTÃO DE CLIENTES -->
@@ -130,6 +211,38 @@
         dropdown.classList.remove('show');
       });
     });
+
+    // ================================
+    // FUNÇÕES DE CONTEÚDO
+    // ================================
+    function removerConteudo(botao) {
+      const item = botao.closest('.content-item');
+      item.remove();
+    }
+
+    function editarConteudo(botao) {
+      const item = botao.closest('.content-item');
+      const titulo = item.querySelector('strong');
+      const novoTitulo = prompt("Digite o novo nome do conteúdo:", titulo.textContent);
+      if (novoTitulo !== null && novoTitulo.trim() !== '') {
+        titulo.textContent = novoTitulo.trim();
+      }
+    }
+
+    function adicionarConteudo() {
+      const lista = document.querySelector('.content-list');
+      const novo = document.createElement('div');
+      novo.className = 'content-item';
+      novo.innerHTML = `
+        <strong>Novo Conteúdo Adicionado</strong>
+        <span>Tipo: Vídeo</span>
+        <div>
+          <button class="edit-btn" onclick="editarConteudo(this)">Editar</button>
+          <button class="remove-btn" onclick="removerConteudo(this)">Remover</button>
+        </div>
+      `;
+      lista.appendChild(novo);
+    }
 
   </script>
 
