@@ -93,6 +93,173 @@ document.getElementById("clearAnalytics")
 renderAnalytics();
 
 // ================================
+// MONITORAMENTO DE VISUALIZAÇÕES
+// ================================
+
+async function fetchVisualizacoes() {
+
+  try {
+
+    const res = await fetch('/api/visualizacoes', {
+      headers: {
+        'Authorization': 'Bearer ' + (Auth.getToken() || '')
+      }
+    });
+
+    if (!res.ok) {
+      throw new Error('Erro ao buscar visualizações');
+    }
+
+    return await res.json();
+
+  } catch (err) {
+
+    console.error(err);
+    return null;
+
+  }
+
+}
+
+function formatarData(dataISO) {
+
+  if (!dataISO) return '-';
+
+  const data = new Date(dataISO.replace(' ', 'T'));
+
+  return data.toLocaleString('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+
+}
+
+function renderVisualizacoes(dados) {
+
+  if (!dados) return;
+
+  const { resumo, por_pagina, recentes } = dados;
+
+  document.getElementById('totalViews').innerText =
+    resumo.total || 0;
+
+  document.getElementById('uniquePages').innerText =
+    resumo.paginas_unicas || 0;
+
+  document.getElementById('uniqueUsers').innerText =
+    resumo.usuarios_unicos || 0;
+
+  const viewsByPage = document.getElementById('viewsByPage');
+  viewsByPage.innerHTML = '';
+
+  if (!por_pagina.length) {
+
+    viewsByPage.innerHTML =
+      '<p class="empty-message">Nenhuma visualização registrada.</p>';
+
+  } else {
+
+    por_pagina.forEach(item => {
+
+      const div = document.createElement('div');
+      div.classList.add('click-item');
+
+      div.innerHTML = `
+        <strong>${item.pagina}</strong>
+        <span>${item.total} visualizações</span>
+      `;
+
+      viewsByPage.appendChild(div);
+
+    });
+
+  }
+
+  const tbody =
+    document.querySelector('#recentViewsTable tbody');
+
+  tbody.innerHTML = '';
+
+  if (!recentes.length) {
+
+    const tr = document.createElement('tr');
+    tr.innerHTML =
+      '<td colspan="3">Nenhuma visualização recente.</td>';
+    tbody.appendChild(tr);
+
+  } else {
+
+    recentes.forEach(item => {
+
+      const tr = document.createElement('tr');
+
+      tr.innerHTML = `
+        <td>${item.pagina}</td>
+        <td>${item.usuario_nome || 'Visitante'}</td>
+        <td>${formatarData(item.criado_em)}</td>
+      `;
+
+      tbody.appendChild(tr);
+
+    });
+
+  }
+
+}
+
+async function initVisualizacoes() {
+
+  if (!document.getElementById('totalViews')) return;
+
+  const dados = await fetchVisualizacoes();
+  renderVisualizacoes(dados);
+
+  const clearBtn = document.getElementById('clearViews');
+
+  if (clearBtn) {
+
+    clearBtn.addEventListener('click', async () => {
+
+      if (!confirm('Limpar todas as visualizações registradas?')) return;
+
+      try {
+
+        const res = await fetch('/api/visualizacoes', {
+          method: 'DELETE',
+          headers: {
+            'Authorization': 'Bearer ' + (Auth.getToken() || '')
+          }
+        });
+
+        if (!res.ok) {
+          throw new Error('Erro ao limpar visualizações');
+        }
+
+        renderVisualizacoes({
+          resumo: { total: 0, paginas_unicas: 0, usuarios_unicos: 0 },
+          por_pagina: [],
+          recentes: []
+        });
+
+      } catch (err) {
+
+        console.error(err);
+        alert('Falha ao limpar visualizações');
+
+      }
+
+    });
+
+  }
+
+}
+
+initVisualizacoes();
+
+// ================================
 // GERENCIAMENTO DE USUÁRIOS (ADMIN)
 // ================================
 

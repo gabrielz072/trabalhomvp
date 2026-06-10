@@ -31,6 +31,17 @@ db.run(`
 `);
 
   db.run(`
+    CREATE TABLE IF NOT EXISTS visualizacoes (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      pagina TEXT NOT NULL,
+      usuario_id INTEGER,
+      usuario_nome TEXT,
+      criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY(usuario_id) REFERENCES usuarios(id)
+    )
+  `);
+
+  db.run(`
     INSERT OR IGNORE INTO usuarios (id, nome, email, senha, tipo_usuario) 
     VALUES (1, 'Administrador', 'admin@circuitoverde.com', '${adminHash}', 'admin')
   `);

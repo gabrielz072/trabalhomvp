@@ -55,6 +55,61 @@
 
     </section>
 
+    <!-- VISUALIZAÇÕES DOS USUÁRIOS -->
+    <section class="dashboard">
+
+      <h2>Visualizações dos Usuários</h2>
+
+      <div class="summary-cards">
+
+        <div class="card">
+          <h3>Total de Visualizações</h3>
+          <p id="totalViews">0</p>
+        </div>
+
+        <div class="card">
+          <h3>Páginas Acessadas</h3>
+          <p id="uniquePages">0</p>
+        </div>
+
+        <div class="card">
+          <h3>Usuários Únicos</h3>
+          <p id="uniqueUsers">0</p>
+        </div>
+
+      </div>
+
+      <div class="charts-grid">
+
+        <div class="chart-box">
+          <h3>Visualizações por Página</h3>
+          <div id="viewsByPage"></div>
+        </div>
+
+        <div class="chart-box">
+          <h3>Últimas Visualizações</h3>
+          <div class="views-table-wrap">
+            <table id="recentViewsTable">
+              <thead>
+                <tr>
+                  <th>Página</th>
+                  <th>Usuário</th>
+                  <th>Data</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <button id="clearViews">
+        Limpar visualizações
+      </button>
+
+    </section>
+
     <!-- RELATÓRIOS -->
     <section class="dashboard">
       <h2>Relatórios Mensais</h2>

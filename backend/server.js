@@ -10,6 +10,9 @@ const authRoutes =
 const favoritosRoutes =
   require('./routes/favoritos');
 
+const visualizacoesRoutes =
+  require('./routes/visualizacoes');
+
 const app = express();
 
 const PORT =
@@ -41,6 +44,11 @@ app.use(
 app.use(
   '/api/favoritos',
   favoritosRoutes
+);
+
+app.use(
+  '/api/visualizacoes',
+  visualizacoesRoutes
 );
 
 /* =========================

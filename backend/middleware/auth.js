@@ -23,4 +23,25 @@ function verificarAdmin(req, res, next) {
   next();
 }
 
-module.exports = { verificarToken, verificarAdmin };
+function verificarTokenOpcional(req, res, next) {
+  const token = req.headers['authorization']?.split(' ')[1];
+
+  if (!token) {
+    return next();
+  }
+
+  try {
+    const usuario = jwt.verify(token, process.env.JWT_SECRET || 'chave_secreta_2024');
+    req.usuario = usuario;
+  } catch (err) {
+    // token inválido: registra como visitante
+  }
+
+  next();
+}
+
+module.exports = {
+  verificarToken,
+  verificarAdmin,
+  verificarTokenOpcional
+};
