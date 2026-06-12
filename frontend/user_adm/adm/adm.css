@@ -16,10 +16,17 @@
 body {
   display: flex;
   font-family: 'Georgia', serif;
-  background-color: #f8f4f0;
+
+  background:
+    radial-gradient(circle at top left,
+    #eef7ee,
+    #f8f4f0 45%);
+
   color: #1A481F;
-  height: 100vh;
-  overflow: hidden;
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
 }
 
 /* ÁREA PRINCIPAL - SEM SIDEBAR */
@@ -44,6 +51,54 @@ body {
   position: relative;
 }
 
+.hero-dashboard{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:35px;
+  margin-bottom:30px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #1A481F,
+    #246D2C
+  );
+
+  border-radius:28px;
+
+  color:white;
+
+  box-shadow:
+  0 20px 45px rgba(0,0,0,.15);
+}
+
+.hero-dashboard h2{
+  font-family:'Morally Serif';
+  font-size:2.2rem;
+  margin-bottom:10px;
+  font-weight:normal;
+}
+
+.hero-dashboard p{
+  opacity:.9;
+  max-width:650px;
+}
+
+.hero-badge{
+  padding:18px 26px;
+
+  border-radius:18px;
+
+  background:
+  rgba(255,255,255,.15);
+
+  backdrop-filter:blur(12px);
+
+  font-weight:600;
+}
+
 .admin-header h1 {
   font-family: 'Morally Serif', serif;
   font-size: 2.2em;
@@ -51,16 +106,33 @@ body {
   font-weight: normal;
 }
 
-.admin-user {
-  position: relative;
-  cursor: pointer;
-  background-color: #246D2C;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 30px;
-  font-weight: bold;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: background-color 0.3s ease;
+.admin-user{
+  position:relative;
+  cursor:pointer;
+
+  background:
+  linear-gradient(
+    135deg,
+    #246D2C,
+    #1A481F
+  );
+
+  color:white;
+
+  padding:12px 24px;
+
+  border-radius:50px;
+
+  font-weight:600;
+
+  box-shadow:
+  0 10px 25px rgba(36,109,44,.25);
+
+  transition:.3s;
+}
+
+.admin-user:hover{
+  transform:translateY(-2px);
 }
 
 .admin-user:hover {
@@ -97,12 +169,23 @@ body {
 }
 
 /* CONTEÚDO DO DASHBOARD */
-.dashboard {
-  padding: 20px;
-  background-color: #ffffffea;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  margin-bottom: 30px;
+.dashboard{
+  padding:32px;
+
+  background:
+  rgba(255,255,255,.88);
+
+  backdrop-filter:blur(14px);
+
+  border-radius:26px;
+
+  border:1px solid
+  rgba(255,255,255,.4);
+
+  box-shadow:
+  0 15px 35px rgba(0,0,0,.05);
+
+  margin-bottom:35px;
 }
 
 .dashboard h1 {
@@ -152,19 +235,37 @@ body {
   gap: 10px;
 }
 
-.report-btn {
-  background-color: #246D2C;
-  border: none;
-  padding: 10px 16px;
-  color: #fff;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s;
+.report-btn{
+  background:
+  linear-gradient(
+    135deg,
+    #246D2C,
+    #2F8F3A
+  );
+
+  border:none;
+
+  padding:12px 20px;
+
+  color:white;
+
+  border-radius:30px;
+
+  cursor:pointer;
+
+  font-weight:600;
+
+  box-shadow:
+  0 8px 18px rgba(36,109,44,.2);
+
+  transition:.3s;
 }
 
-.report-btn:hover {
-  background-color: #2F8F3A;
+.report-btn:hover{
+  transform:translateY(-2px);
+
+  box-shadow:
+  0 12px 24px rgba(36,109,44,.3);
 }
 
 /* Cards de resumo */
@@ -175,13 +276,36 @@ body {
   margin-bottom: 30px;
 }
 
-.card {
-  flex: 1;
-  min-width: 200px;
-  background-color: #fffaf6;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+.card{
+  flex:1;
+  min-width:220px;
+
+  background:white;
+
+  padding:25px;
+
+  border-radius:20px;
+
+  border:1px solid
+  rgba(36,109,44,.08);
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,.05);
+
+  transition:.3s ease;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+
+  box-shadow:
+  0 18px 40px rgba(0,0,0,.08);
+}
+
+.card span{
+  display:block;
+  font-size:2rem;
+  margin-bottom:10px;
 }
 
 .card h3 {
@@ -197,11 +321,18 @@ body {
 }
 
 /* Gráfico de barras */
-.chart-box {
-  background-color: #fffaf6;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+.chart-box{
+  background:white;
+
+  padding:25px;
+
+  border-radius:22px;
+
+  border:1px solid
+  rgba(36,109,44,.08);
+
+  box-shadow:
+  0 10px 25px rgba(0,0,0,.04);
 }
 
 .chart-box h3 {
@@ -372,6 +503,22 @@ body {
   color: #1A481F;
 }
 
+#usersTable,
+#recentViewsTable{
+  border-radius:18px;
+  overflow:hidden;
+}
+
+#usersTable tbody tr,
+#recentViewsTable tbody tr{
+  transition:.25s ease;
+}
+
+#usersTable tbody tr:hover,
+#recentViewsTable tbody tr:hover{
+  background:#f3faf3;
+}
+
 .btn-view, .btn-delete {
   padding: 8px 12px;
   border-radius: 8px;
@@ -518,4 +665,24 @@ body {
 
 .remove-btn:hover {
   background-color: #b85353;
+}
+
+.dashboard,
+.card,
+.chart-box{
+  animation:fadeUp .6s ease;
+}
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
 }
