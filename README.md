@@ -1,50 +1,55 @@
-Nome do projeto: TereVerde Online
+🌿 Circuito Terê Verde
+📌 Tipo de MVP
 
-Tipo de MVP:
-Produto Mínimo Viável com Foco em Funcionalidade Essencial
-Este MVP se concentra em entregar a funcionalidade principal do site de forma simples e eficaz: um guia digital dos parques da região serrana. A ideia é validar rapidamente se a proposta de valor (fornecer informações confiáveis sobre biodiversidade, trilhas, eventos e condições das atrações naturais) atende às necessidades do público interessado em explorar esses espaços.
+Produto Mínimo Viável (MVP) focado na entrega de funcionalidades essenciais.
 
-Objetivo e Benefícios do Produto
+Este projeto tem como objetivo validar uma solução digital simples para consulta de informações sobre parques naturais e trilhas da região serrana de Teresópolis.
 
-Objetivo Principal:
-Oferecer uma ferramenta digital acessível e intuitiva para que moradores e visitantes possam consultar informações sobre o Parque Nacional da Serra dos Órgãos, o Parque Estadual dos Três Picos e o Parque Natural Municipal Montanhas de Teresópolis, facilitando o planejamento de passeios e atividades ao ar livre.
+🎯 Objetivo do Produto
 
-Benefícios para o Usuário:
+O Circuito Terê Verde tem como objetivo oferecer uma plataforma digital acessível para consulta de informações sobre áreas naturais da região de Teresópolis, incluindo parques, trilhas e atrativos ambientais.
 
-Acesso Rápido: Centraliza em um único ambiente digital informações atualizadas sobre trilhas, eventos e atrativos.
+A aplicação busca facilitar o planejamento de visitas e incentivar o contato com a natureza de forma organizada e segura.
 
-Autonomia: Permite que cada pessoa organize sua visita de forma independente, sem precisar recorrer a múltiplas fontes de informação.
+🌱 Benefícios para o usuário
+Acesso rápido: informações centralizadas sobre trilhas, parques e atrativos naturais
+Autonomia: o usuário pode planejar suas visitas sem depender de múltiplas fontes
+Simplicidade: interface objetiva e fácil de usar
+Acessibilidade: disponível online a qualquer momento
 
-Simplicidade: Interface clara e conteúdo direto, evitando confusão e otimizando o tempo do usuário.
+👥 Público-alvo
+Turistas interessados em ecoturismo e trilhas
+Moradores da região de Teresópolis
+Pessoas interessadas em atividades ao ar livre e natureza
 
-Conveniência: Disponível a qualquer momento e em qualquer lugar com acesso à internet, tornando mais fácil a conexão com a natureza.
+⚠️ Problemas que o projeto resolve
+Falta de informações centralizadas sobre trilhas e parques
+Dificuldade em encontrar dados atualizados sobre atrativos naturais
+Informações dispersas em diferentes fontes
+Baixa praticidade no planejamento de visitas
 
-Público-Alvo
+🧩 Funcionalidades do MVP
+Listagem de trilhas com informações básicas (km, dificuldade e tempo estimado)
+Listagem de cachoeiras e atrativos naturais
+Exibição de detalhes de cada local
+Interface simples e responsiva
 
-Visitantes que desejam explorar os parques da região de Teresópolis.
+💻 Tecnologias utilizadas
 
-Turistas interessados em ecoturismo, trilhas e atividades ao ar livre.
+🛠️ Backend
+Node.js
+Express
 
-Moradores locais que procuram lazer em contato com a natureza.
+🗄️ Banco de dados
+SQLite
 
-Pessoas que valorizam biodiversidade, conservação ambiental e práticas sustentáveis.
+🎨 Frontend
+HTML5
+CSS3
+JavaScript
 
-Dores do Público-Alvo
-
-Dificuldade em encontrar informações centralizadas e atualizadas sobre as condições das trilhas e atrações.
-
-Falta de tempo para buscar dados dispersos em diferentes fontes.
-
-Necessidade de uma solução prática e confiável para planejar passeios em áreas naturais.
-
-Pouco conhecimento sobre biodiversidade e eventos que ocorrem nos parques.
-
-Tecnologias usadas:
-
-HTML5, CSS3, JavaScript
-
-Desenvolvimento:
-
+👨‍💻 Desenvolvimento
+Projeto desenvolvido por:
 Camilly Nascimento
 Caio Zambonelli
 Gabriel Santos
