@@ -38,8 +38,8 @@ A aplicação busca facilitar o planejamento de visitas e incentivar o contato c
 
 
 🚫 Fora do Escopo (MVP)
-O sistema Circuito Terê Verde não contempla nesta versão inicial as seguintes funcionalidades:
 
+O sistema Circuito Terê Verde não contempla nesta versão inicial as seguintes funcionalidades:
 * Geolocalização em tempo real durante trilhas
 * Aplicativo mobile nativo (Android/iOS)
 * Sistema de avaliações e comentários entre usuários
