@@ -42,6 +42,21 @@ db.run(`
   `);
 
   db.run(`
+    CREATE TABLE IF NOT EXISTS trilhas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    categoria TEXT NOT NULL,
+    dificuldade TEXT,
+    km TEXT,
+    localizacao TEXT,
+    descricao TEXT,
+    mapa TEXT,
+    imagem TEXT,
+    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+  `);
+
+  db.run(`
     INSERT OR IGNORE INTO usuarios (id, nome, email, senha, tipo_usuario) 
     VALUES (1, 'Administrador', 'admin@circuitoverde.com', '${adminHash}', 'admin')
   `);

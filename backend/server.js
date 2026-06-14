@@ -13,6 +13,9 @@ const favoritosRoutes =
 const visualizacoesRoutes =
   require('./routes/visualizacoes');
 
+const trilhasRoutes =
+  require('./routes/trilhasRoutes');
+
 const app = express();
 
 const PORT =
@@ -49,6 +52,11 @@ app.use(
 app.use(
   '/api/visualizacoes',
   visualizacoesRoutes
+);
+
+app.use(
+  '/api/trilhas',
+  trilhasRoutes
 );
 
 /* =========================

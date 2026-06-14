@@ -68,7 +68,7 @@ function listarVisualizacoes(req, res) {
           criado_em
         FROM visualizacoes
         ORDER BY criado_em DESC
-        LIMIT 50
+        LIMIT 10
         `,
         [],
 
