@@ -1,4 +1,4 @@
-🌿 Circuito Terê Verde 
+🌿 Circuito Terê Verde
 
 📌 Tipo de MVP
 
@@ -13,37 +13,51 @@ A aplicação busca facilitar o planejamento de visitas e incentivar o contato c
 
 
 
-🌱 Benefícios para o usuário 
+🌱 Benefícios para o usuário
 
-* Acesso rápido: informações centralizadas sobre trilhas, parques e atrativos naturais 
-* Autonomia: o usuário pode planejar suas visitas sem depender de múltiplas fontes 
-* Simplicidade: interface objetiva e fácil de usar 
+* Acesso rápido: informações centralizadas sobre trilhas, parques e atrativos naturais
+* Autonomia: o usuário pode planejar suas visitas sem depender de múltiplas fontes
+* Simplicidade: interface objetiva e fácil de usar
 * Acessibilidade: disponível online a qualquer momento
 
 
 
-👥 Público-alvo 
+👥 Público-alvo
 
-* Turistas interessados em ecoturismo e trilhas 
-* Moradores da região de Teresópolis 
+* Turistas interessados em ecoturismo e trilhas
+* Moradores da região de Teresópolis
 * Pessoas interessadas em atividades ao ar livre e natureza
 
 
 
 ⚠️ Problemas que o projeto resolve
 
-* Falta de informações centralizadas sobre trilhas e parques 
-* Dificuldade em encontrar dados atualizados sobre atrativos naturais 
-* Informações dispersas em diferentes fontes 
+* Falta de informações centralizadas sobre trilhas e parques
+* Dificuldade em encontrar dados atualizados sobre atrativos naturais
+* Informações dispersas em diferentes fontes
 * Baixa praticidade no planejamento de visitas
 
 
 
-🧩 Funcionalidades do MVP 
+🧩 Funcionalidades do MVP
 
-* Listagem de trilhas com informações básicas (km, dificuldade e tempo estimado) 
-* Listagem de cachoeiras e atrativos naturais 
+* Listagem de trilhas com informações básicas (km, dificuldade e tempo estimado)
+* Listagem de cachoeiras e atrativos naturais
 * Exibição de detalhes de cada local Interface simples e responsiva
+
+
+
+🚫 Fora do Escopo (MVP)
+
+O sistema Circuito Terê Verde não contempla nesta versão inicial as seguintes funcionalidades:
+
+
+
+* Geolocalização em tempo real durante trilhas
+* Aplicativo mobile nativo (Android/iOS)
+* Sistema de avaliações e comentários entre usuários
+* Chat ou comunicação entre usuários
+* Integração com órgãos oficiais de turismo
 
 
 
@@ -51,30 +65,30 @@ A aplicação busca facilitar o planejamento de visitas e incentivar o contato c
 
 
 
-🛠️ Backend 
+🛠️ Backend
 
-* Node.js 
+* Node.js
 * Express
 
 
 
-🗄️ Banco de dados 
+🗄️ Banco de dados
 
 * SQLite
 
 
 
-🎨 Frontend 
+🎨 Frontend
 
-* HTML5 
-* CSS3 
+* HTML5
+* CSS3
 * JavaScript
 
 
 
-👨‍💻 Desenvolvimento Projeto desenvolvido por: 
+👨‍💻 Desenvolvimento Projeto desenvolvido por:
 
-* Camilly Carreiro 
-* Caio Zambonelli 
+* Camilly Carreiro
+* Caio Zambonelli
 * Gabriel Santos
 
